@@ -1,13 +1,51 @@
 ---
 import '../styles/global.css';
-import aiQuestions from '../data/connectionist-ai-questions.json';
 
-// Flatten all questions from all sections
-const allQuestions = aiQuestions.sections.flatMap(section => section.questions);
-const quizDataJson = JSON.stringify({
-	topic: 'Connectionist AI',
-	questions: allQuestions
-});
+// Define chapters for Connectionist AI
+const chapters = [
+	{
+		id: 'intro',
+		title: 'Introduction to Connectionist AI',
+		description: 'Learn the fundamentals, compare with Symbolic AI, and meet the "Neural Network Band".',
+		icon: '🧠',
+		link: '/connectionist-ai/introduction'
+	},
+	{
+		id: 'basics',
+		title: 'Neural Network Basics',
+		description: 'Explore the structure, components, and core concepts of how neural networks work.',
+		icon: '🏗️',
+		link: '/connectionist-ai/basics'
+	},
+	{
+		id: 'training',
+		title: 'Training a Neural Network',
+		description: 'Understand the step-by-step process of training, from forward pass to backpropagation.',
+		icon: '🏋️',
+		link: '/connectionist-ai/training'
+	},
+	{
+		id: 'performance',
+		title: 'Generalization & Performance',
+		description: 'Learn about overfitting, underfitting, and how to evaluate model effectiveness.',
+		icon: '🎯',
+		link: '/connectionist-ai/performance'
+	},
+	{
+		id: 'architectures',
+		title: 'Key Architectures & Applications',
+		description: 'Discover network types like CNNs, RNNs, and Transformers and their real-world uses.',
+		icon: '🏛️',
+		link: '/connectionist-ai/architectures'
+	},
+	{
+		id: 'challenges',
+		title: 'Challenges & Ethical Considerations',
+		description: 'Explore technical hurdles, the "black box" problem, bias, privacy, and fairness in AI.',
+		icon: '⚖️',
+		link: '/connectionist-ai/challenges'
+	}
+];
 ---
 
 <html lang="en">
@@ -16,303 +54,41 @@ const quizDataJson = JSON.stringify({
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-	<title>{aiQuestions.topic} - Interactive Learning System</title>
-	<script is:inline set:html={`window.QUIZ_DATA = ${quizDataJson};`}></script>
+		<title>Connectionist AI - Chapters</title>
 	</head>
-	<body class="min-h-screen bg-white">
-		<div id="quiz-app" class="min-h-screen">
-			<!-- Quiz content will be rendered here -->
-		</div>
-		
-		<script>
-			const quizData = window.QUIZ_DATA;
-			const app = document.getElementById('quiz-app');
-			let currentIndex = 0;
-			let score = 0;
-			let lives = 3;
-			let totalScore = 0;
-			const questions = quizData.questions;
-			
-			totalScore = questions.reduce((sum, q) => sum + (q.points || 10), 0);
-			
-			function renderQuiz() {
-				const question = questions[currentIndex];
-				app.innerHTML = `
-					<!-- Header -->
-					<header class="flex items-center justify-between px-6 py-4 border-b border-gray-200">
-						<a href="/" class="text-gray-600 hover:text-gray-900 transition-colors">
-							<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-							</svg>
-						</a>
-						
-						<div class="flex-1 mx-8">
-							<div class="flex gap-1">
-								${questions.map((_, i) => `
-									<div class="h-2 flex-1 rounded transition-colors ${
-										i < currentIndex ? 'bg-green-500' :
-										i === currentIndex ? 'bg-blue-500' :
-										'bg-gray-200'
-									}"></div>
-								`).join('')}
-							</div>
-						</div>
-						
-						<div class="flex items-center gap-1">
-							${[0, 1, 2].map(i => `
-								<svg class="w-6 h-6 ${i < lives ? 'text-red-500' : 'text-gray-300'}" fill="currentColor" viewBox="0 0 24 24">
-									<path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-								</svg>
-							`).join('')}
-						</div>
-					</header>
+	<body class="bg-gradient-to-br from-purple-50 via-indigo-50 to-pink-50 min-h-screen">
+		<div class="container mx-auto px-4 py-16">
+			<a href="/" class="inline-flex items-center text-gray-600 hover:text-gray-900 mb-8">
+				<svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+				</svg>
+				Back to Home
+			</a>
 
-					<!-- Main Content -->
-					<main class="max-w-3xl mx-auto px-6 py-12">
-						<div class="space-y-6">
-							<div class="inline-block px-3 py-1 bg-purple-600 text-white text-sm font-semibold rounded">
-								PRACTICE
-							</div>
-							<h2 class="text-3xl font-bold text-gray-800">${question.question}</h2>
-							
-							${renderQuestionHTML(question)}
-						</div>
-					</main>
-					
-					<!-- Feedback Bar -->
-					<footer id="feedback" class="hidden fixed bottom-0 left-0 right-0 bg-gray-100 border-t border-gray-200 p-6">
-						<div class="max-w-3xl mx-auto flex items-center justify-between">
-							<div id="feedback-message"></div>
-							<div id="feedback-actions"></div>
-						</div>
-					</footer>
-				`;
-				
-				// Attach event listeners based on question type
-				attachQuestionListeners(question);
-			}
-			
-			function renderQuestionHTML(question) {
-				if (question.type === 'multiple-choice') {
-					return `
-						<div class="space-y-3">
-							${question.options.map((opt, idx) => `
-								<button onclick="selectOption(${idx})" id="opt-${idx}" class="w-full text-left p-4 border-2 border-gray-300 rounded-lg hover:border-purple-500 transition-all">
-									${opt}
-								</button>
-							`).join('')}
-						</div>
-						<button onclick="checkAnswer()" id="submit-btn" class="w-full mt-6 py-4 bg-gray-900 text-white rounded-lg font-semibold hover:bg-gray-800 transition-colors">
-							Submit
-						</button>
-					`;
-				} else if (question.type === 'true-false') {
-					return `
-						<div class="grid grid-cols-2 gap-4">
-							<button onclick="selectOption(true)" id="opt-true" class="p-6 border-2 border-gray-300 rounded-lg hover:border-purple-500 transition-all text-xl font-semibold">
-								True
-							</button>
-							<button onclick="selectOption(false)" id="opt-false" class="p-6 border-2 border-gray-300 rounded-lg hover:border-purple-500 transition-all text-xl font-semibold">
-								False
-							</button>
-						</div>
-						<button onclick="checkAnswer()" id="submit-btn" class="w-full mt-6 py-4 bg-gray-900 text-white rounded-lg font-semibold hover:bg-gray-800 transition-colors">
-							Submit
-						</button>
-					`;
-				} else if (question.type === 'fill-in-bank') {
-					// For fill-in-bank, create answer bank
-					const words = [...question.bank].sort(() => Math.random() - 0.5);
-					return `
-						<div class="space-y-4">
-							<div id="blank-answer" class="p-6 bg-gray-50 rounded-lg min-h-24 flex items-center flex-wrap gap-2 border-2 border-dashed border-gray-300">
-								<!-- Blanks will be rendered here -->
-							</div>
-							<div id="answer-bank" class="flex flex-wrap gap-2">
-								${words.map((word, idx) => `
-									<button onclick="selectWord('${word}')" id="word-${idx}" class="px-4 py-2 bg-purple-100 hover:bg-purple-200 rounded-lg transition-colors text-gray-800">
-										${word}
-									</button>
-								`).join('')}
+			<div class="text-center mb-12">
+				<h1 class="text-5xl font-bold text-gray-800 mb-4">Connectionist AI</h1>
+				<p class="text-xl text-gray-600">Select a chapter to begin your learning journey</p>
+			</div>
+
+			<div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+				{chapters.map((chapter) => (
+					<a href={chapter.link} class="group block">
+						<div class="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 hover:-translate-y-1 border-2 border-gray-100 hover:border-purple-500">
+							<div class="flex items-start gap-4">
+								<div class="text-4xl">{chapter.icon}</div>
+								<div class="flex-1">
+									<h3 class="text-xl font-bold text-gray-800 mb-2 group-hover:text-purple-600 transition-colors">{chapter.title}</h3>
+									<p class="text-gray-600 text-sm">{chapter.description}</p>
+								</div>
+								<svg class="w-6 h-6 text-gray-400 group-hover:text-purple-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+								</svg>
 							</div>
 						</div>
-						<button onclick="checkAnswer()" id="submit-btn" class="w-full mt-6 py-4 bg-gray-900 text-white rounded-lg font-semibold hover:bg-gray-800 transition-colors">
-							Submit
-						</button>
-					`;
-				}
-			}
-			
-			let selectedAnswer = null;
-			let selectedWords = [];
-			
-			function selectOption(answer) {
-				selectedAnswer = answer;
-				// Update visual selection
-				document.querySelectorAll('[id^="opt-"]').forEach(btn => {
-					btn.className = btn.className.replace('border-purple-500 bg-purple-50', 'border-gray-300');
-					btn.className = btn.className.replace('hover:bg-purple-50', 'hover:border-purple-500');
-				});
-				const btn = document.getElementById(answer === true ? 'opt-true' : answer === false ? 'opt-false' : `opt-${answer}`);
-				if (btn) {
-					btn.className = btn.className.replace('border-gray-300', 'border-purple-500 bg-purple-50');
-				}
-			}
-			
-			function selectWord(word) {
-				if (selectedWords.length < questions[currentIndex].blanks.length) {
-					selectedWords.push(word);
-					// Remove from bank and add to answer
-					const btn = Array.from(document.querySelectorAll('[id^="word-"]')).find(b => b.textContent === word);
-					if (btn) {
-						btn.style.display = 'none';
-					}
-					const blankDiv = document.getElementById('blank-answer');
-					blankDiv.innerHTML += `
-						<span class="px-4 py-2 bg-purple-200 rounded-lg text-gray-800 font-medium inline-flex items-center gap-2">
-							${word}
-							<button onclick="removeWord(${selectedWords.length - 1})" class="text-gray-600 hover:text-gray-800">×</button>
-						</span>
-					`;
-				}
-			}
-			
-			function removeWord(index) {
-				selectedWords.splice(index, 1);
-				renderQuiz(); // Re-render to update display
-			}
-			
-			function attachQuestionListeners(question) {
-				window.selectOption = selectOption;
-				window.selectWord = selectWord;
-				window.removeWord = removeWord;
-				window.checkAnswer = () => checkAnswer(question);
-			}
-			
-			function disableAnswers() {
-				// Disable all buttons and inputs
-				document.querySelectorAll('button').forEach(btn => {
-					if (btn.id !== 'submit-btn') {
-						btn.classList.add('opacity-50', 'cursor-not-allowed');
-						btn.disabled = true;
-						btn.onclick = null;
-					}
-				});
-				document.getElementById('submit-btn').classList.add('opacity-50', 'cursor-not-allowed');
-				document.getElementById('submit-btn').disabled = true;
-			}
-			
-			function highlightCorrectAnswer(question) {
-				if (question.type === 'multiple-choice') {
-					const correctIdx = question.correct;
-					const correctBtn = document.getElementById(`opt-${correctIdx}`);
-					if (correctBtn) {
-						correctBtn.className = 'w-full text-left p-4 border-2 border-gray-400 bg-gray-200 rounded-lg flex items-center justify-between opacity-75';
-						correctBtn.innerHTML = `${question.options[correctIdx]} <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>`;
-					}
-				} else if (question.type === 'true-false') {
-					const correctBtn = document.getElementById(question.correct ? 'opt-true' : 'opt-false');
-					if (correctBtn) {
-						correctBtn.className = 'p-6 border-2 border-gray-400 bg-gray-200 rounded-lg flex items-center justify-between opacity-75 text-xl font-semibold';
-						correctBtn.innerHTML = `${question.correct ? 'True' : 'False'} <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>`;
-					}
-				}
-			}
-			
-			function checkAnswer(question) {
-				disableAnswers();
-				
-				const feedback = document.getElementById('feedback');
-				const feedbackMsg = document.getElementById('feedback-message');
-				const feedbackActions = document.getElementById('feedback-actions');
-				let isCorrect = false;
-				
-				if (question.type === 'multiple-choice') {
-					isCorrect = selectedAnswer === question.correct;
-				} else if (question.type === 'true-false') {
-					isCorrect = selectedAnswer === question.correct;
-				} else if (question.type === 'fill-in-bank') {
-					isCorrect = selectedWords.join(' ') === question.blanks.map(b => b.correct).join(' ');
-				}
-				
-				if (isCorrect) {
-					score += question.points || 10;
-					feedbackMsg.innerHTML = `
-						<div class="flex items-center gap-3 text-green-600">
-							<svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
-								<path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
-							</svg>
-							<span class="text-2xl font-bold">Excellent!</span>
-						</div>
-						<div class="text-green-600 font-semibold">+${question.points || 10} XP</div>
-					`;
-					feedbackActions.innerHTML = `
-						<button onclick="nextQuestion()" class="px-8 py-3 bg-green-600 text-white rounded-lg font-semibold hover:bg-green-700 transition-colors">
-							Continue
-						</button>
-					`;
-				} else {
-					lives--;
-					highlightCorrectAnswer(question);
-					feedbackMsg.innerHTML = `
-						<div class="flex items-center gap-3 text-red-600">
-							<svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
-								<path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
-							</svg>
-							<span class="text-2xl font-bold">Incorrect</span>
-						</div>
-					`;
-					feedbackActions.innerHTML = `
-						<button onclick="nextQuestion()" class="px-8 py-3 bg-gray-900 text-white rounded-lg font-semibold hover:bg-gray-800 transition-colors">
-							Continue
-						</button>
-					`;
-				}
-				
-				feedback.classList.remove('hidden');
-				if (lives === 0) {
-					// Game over
-					setTimeout(() => {
-						app.innerHTML = `
-							<div class="text-center py-20">
-								<div class="text-6xl mb-6">💔</div>
-								<h2 class="text-4xl font-bold text-gray-800 mb-4">Game Over</h2>
-								<p class="text-2xl text-gray-600 mb-8">You scored ${score} out of ${totalScore} points</p>
-								<a href="/" class="inline-block px-6 py-3 bg-purple-600 text-white rounded-lg font-semibold hover:bg-purple-700 transition-colors">
-									Back to Home
-								</a>
-							</div>
-						`;
-					}, 2000);
-				}
-			}
-			
-			function nextQuestion() {
-				currentIndex++;
-				selectedAnswer = null;
-				selectedWords = [];
-				
-				if (currentIndex < questions.length) {
-					renderQuiz();
-				} else {
-					// Quiz complete
-					app.innerHTML = `
-						<div class="text-center py-20">
-							<div class="text-6xl mb-6">🎉</div>
-							<h2 class="text-4xl font-bold text-gray-800 mb-4">Quiz Complete!</h2>
-							<p class="text-2xl text-gray-600 mb-8">You scored ${score} out of ${totalScore} points</p>
-							<a href="/" class="inline-block px-6 py-3 bg-purple-600 text-white rounded-lg font-semibold hover:bg-purple-700 transition-colors">
-								Back to Home
-							</a>
-						</div>
-					`;
-				}
-			}
-			
-			window.nextQuestion = nextQuestion;
-			
-			// Initialize
-			renderQuiz();
-		</script>
+					</a>
+				))}
+			</div>
+		</div>
 	</body>
 </html>
+

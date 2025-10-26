@@ -1,0 +1,341 @@
+{
+  "topic": "Generalization & Performance",
+  "sections": [
+    {
+      "section": "4.1: Introduction",
+      "questions": [
+        {
+          "id": "gp-4.1-1",
+          "type": "true-false",
+          "question": "Connectionist AI operates by following explicit, pre-programmed rules, similar to a calculator.",
+          "correct": false,
+          "points": 10
+        },
+        {
+          "id": "gp-4.1-2",
+          "type": "multiple-choice",
+          "question": "What is the primary way that connectionist AI, like an ANN, learns?",
+          "options": [
+            "By solving complex mathematical equations",
+            "By following a strict set of logical rules",
+            "Through examples, gradually building internal representations",
+            "By being directly programmed by a developer for each task"
+          ],
+          "correct": 2,
+          "points": 15
+        },
+        {
+          "id": "gp-4.1-3",
+          "type": "fill-in-bank",
+          "question": "An Artificial Neural Network (ANN) is a simplified _________ version of the human brain's interconnected neurons.",
+          "blanks": [
+            {
+              "position": 1,
+              "correct": "electrical"
+            }
+          ],
+          "bank": [
+            "biological",
+            "mechanical",
+            "chemical",
+            "electrical",
+            "symbolic"
+          ],
+          "points": 20
+        },
+        {
+          "id": "gp-4.1-4",
+          "type": "multiple-answer",
+          "question": "According to the text, what are the two fundamental aspects that determine the effectiveness of neural networks? Select two.",
+          "options": [
+            "The speed of the computer",
+            "Generalization",
+            "The programming language used",
+            "Performance",
+            "The size of the network"
+          ],
+          "correct": [1, 3],
+          "points": 20
+        }
+      ]
+    },
+    {
+      "section": "4.2: Understanding Generalization",
+      "questions": [
+        {
+          "id": "gp-4.2-1",
+          "type": "multiple-choice",
+          "question": "What is the best definition of 'generalization' in the context of a neural network?",
+          "options": [
+            "The ability to memorize the training data perfectly.",
+            "The speed at which the network can process data.",
+            "The ability to perform accurately on new, unseen data.",
+            "The process of simplifying a complex model."
+          ],
+          "correct": 2,
+          "points": 15
+        },
+        {
+          "id": "gp-4.2-2",
+          "type": "true-false",
+          "question": "A well-generalized model captures both the patterns and the random noise in the training data.",
+          "correct": false,
+          "points": 10
+        },
+        {
+          "id": "gp-4.2-3",
+          "type": "multiple-answer",
+          "question": "Which of the following datasets are used to test and ensure a model's generalization? Select all that apply.",
+          "options": [
+            "Training set",
+            "Validation set",
+            "Production set",
+            "Testing set"
+          ],
+          "correct": [1, 3],
+          "points": 20
+        },
+        {
+          "id": "gp-4.2-4",
+          "type": "fill-in-bank",
+          "question": "The _________ set is used only once for the final evaluation of the model's performance.",
+          "blanks": [
+            {
+              "position": 1,
+              "correct": "Testing"
+            }
+          ],
+          "bank": [
+            "Training",
+            "Validation",
+            "Complete",
+            "Testing",
+            "Mock"
+          ],
+          "points": 15
+        },
+        {
+          "id": "gp-4.2-5",
+          "type": "multiple-choice",
+          "question": "In the analogy provided, taking mock exams before the real test corresponds to using which dataset?",
+          "options": [
+            "The training set",
+            "The validation set",
+            "The testing set",
+            "The entire dataset"
+          ],
+          "correct": 1,
+          "points": 10
+        }
+      ]
+    },
+    {
+      "section": "4.3: Overfitting, Underfitting, and the Bias–Variance Trade-Off",
+      "questions": [
+        {
+          "id": "gp-4.3-1",
+          "type": "true-false",
+          "question": "Underfitting occurs when a model is too complex and memorizes the training data.",
+          "correct": false,
+          "points": 10
+        },
+        {
+          "id": "gp-4.3-2",
+          "type": "multiple-choice",
+          "question": "A model that shows excellent training accuracy but very poor test performance is most likely suffering from:",
+          "options": [
+            "Underfitting",
+            "High bias",
+            "Overfitting",
+            "Low variance"
+          ],
+          "correct": 2,
+          "points": 15
+        },
+        {
+          "id": "gp-4.3-3",
+          "type": "fill-in-bank",
+          "question": "In the Bias-Variance Trade-Off, a model with high _________ is too rigid, while a model with high _________ is too sensitive.",
+          "blanks": [
+            {
+              "position": 1,
+              "correct": "bias"
+            },
+            {
+              "position": 2,
+              "correct": "variance"
+            }
+          ],
+          "bank": [
+            "bias",
+            "variance",
+            "accuracy",
+            "error"
+          ],
+          "points": 25
+        },
+        {
+          "id": "gp-4.3-4",
+          "type": "multiple-answer",
+          "question": "Which of the following are indicators of an underfitting model? Select all that apply.",
+          "options": [
+            "The model is too complex.",
+            "Low performance on training data.",
+            "Low performance on test data.",
+            "Validation loss increases while training loss decreases."
+          ],
+          "correct": [1, 2],
+          "points": 20
+        },
+        {
+          "id": "gp-4.3-5",
+          "type": "true-false",
+          "question": "Good generalization is achieved by maximizing variance and minimizing bias.",
+          "correct": false,
+          "points": 10
+        }
+      ]
+    },
+    {
+      "section": "4.4: Evaluating Model Performance",
+      "questions": [
+        {
+          "id": "gp-4.4-1",
+          "type": "multiple-choice",
+          "question": "Which performance metric is described as the harmonic mean of precision and recall?",
+          "options": [
+            "Accuracy",
+            "Loss Function",
+            "F1-Score",
+            "Mean Squared Error"
+          ],
+          "correct": 2,
+          "points": 15
+        },
+        {
+          "id": "gp-4.4-2",
+          "type": "true-false",
+          "question": "A model's computational performance (e.g., speed and memory usage) is separate from its overall real-world performance and is often ignored.",
+          "correct": false,
+          "points": 10
+        },
+        {
+          "id": "gp-4.4-3",
+          "type": "fill-in-bank",
+          "question": "In tasks like detecting rare diseases, it is crucial to minimize _________ negatives, where a dangerous case goes undetected.",
+          "blanks": [
+            {
+              "position": 1,
+              "correct": "false"
+            }
+          ],
+          "bank": [
+            "true",
+            "false",
+            "double",
+            "random"
+          ],
+          "points": 20
+        },
+        {
+          "id": "gp-4.4-4",
+          "type": "multiple-answer",
+          "question": "Which of the following are mentioned as quantitative metrics for evaluating a model's predictive skill? Select all that apply.",
+          "options": [
+            "Scalability",
+            "Accuracy",
+            "Precision & Recall",
+            "Memory Usage",
+            "Loss Function"
+          ],
+          "correct": [1, 2, 4],
+          "points": 20
+        },
+        {
+          "id": "gp-4.4-5",
+          "type": "multiple-choice",
+          "question": "According to the analogy in the text, a model's accuracy is like _________, while its computational performance is like _________.",
+          "options": [
+            "how fast a student is; how smart they are",
+            "how smart a student is; how fast they finish the test",
+            "the textbook; the student's notes",
+            "the exam questions; the final grade"
+          ],
+          "correct": 1,
+          "points": 15
+        }
+      ]
+    },
+    {
+      "section": "4.5: Improving Generalization and Performance",
+      "questions": [
+        {
+          "id": "gp-4.5-1",
+          "type": "multiple-choice",
+          "question": "What is the purpose of the 'Dropout' technique?",
+          "options": [
+            "To remove noisy data from the training set.",
+            "To stop training when performance stops improving.",
+            "To randomly disable neurons during training to prevent over-reliance on specific pathways.",
+            "To increase the learning rate for faster training."
+          ],
+          "correct": 2,
+          "points": 15
+        },
+        {
+          "id": "gp-4.5-2",
+          "type": "true-false",
+          "question": "Data augmentation involves creating new training examples by making small changes like rotations or flips to existing data.",
+          "correct": true,
+          "points": 10
+        },
+        {
+          "id": "gp-4.5-3",
+          "type": "fill-in-bank",
+          "question": "The technique of _________ stops training when the model's performance on the validation set stops improving.",
+          "blanks": [
+            {
+              "position": 1,
+              "correct": "Early Stopping"
+            }
+          ],
+          "bank": [
+            "Data Augmentation",
+            "Regularization",
+            "Dropout",
+            "Early Stopping",
+            "Hyperparameter Optimization"
+          ],
+          "points": 20
+        },
+        {
+          "id": "gp-4.5-4",
+          "type": "multiple-answer",
+          "question": "Which of the following are considered methods for improving generalization and preventing overfitting? Select all that apply.",
+          "options": [
+            "Increasing model complexity indefinitely",
+            "Regularization",
+            "Data Augmentation",
+            "Early Stopping",
+            "Using only a training set"
+          ],
+          "correct": [1, 2, 3],
+          "points": 25
+        },
+        {
+          "id": "gp-4.5-5",
+          "type": "multiple-choice",
+          "question": "Adjusting parameters like learning rate, number of layers, or batch size is known as:",
+          "options": [
+            "Regularization",
+            "Data Splitting",
+            "Hyperparameter Optimization",
+            "Performance Tuning"
+          ],
+          "correct": 2,
+          "points": 15
+        }
+      ]
+    }
+  ]
+}

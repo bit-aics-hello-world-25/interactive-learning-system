@@ -1,0 +1,251 @@
+{
+  "topic": "Connectionist AI",
+  "sections": [
+    {
+      "section": "1.1: What is Connectionist AI?",
+      "questions": [
+        {
+          "id": "cai-1",
+          "type": "multiple-choice",
+          "question": "According to the introduction, which of the following is a key learning objective of this module?",
+          "options": [
+            "How to code in C",
+            "The history of the 'hello_world' team",
+            "How Connectionist AI differs from Symbolic AI",
+            "The biography of Aditya"
+          ],
+          "correct": 2,
+          "points": 10
+        },
+        {
+          "id": "cai-2",
+          "type": "true-false",
+          "question": "The text compares Connectionist AI to a brain where individual artificial neurons are extremely intelligent on their own.",
+          "correct": false,
+          "points": 10
+        },
+        {
+          "id": "cai-3",
+          "type": "fill-in-bank",
+          "question": "Connectionist AI systems learn patterns by tuning many small _________-like units, instead of using hand-coded rules.",
+          "blanks": [
+            {
+              "position": 1,
+              "correct": "neuron"
+            }
+          ],
+          "bank": [
+            "computer",
+            "symbol",
+            "neuron",
+            "logic"
+          ],
+          "points": 15
+        },
+        {
+          "id": "cai-4",
+          "type": "multiple-choice",
+          "question": "What is the primary function of an 'Artificial Neuron' as described in the text?",
+          "options": [
+            "To store large amounts of data like a hard drive.",
+            "To execute complex, pre-programmed rules.",
+            "To act as a small mathematical function that processes weighted inputs.",
+            "To display information to the user."
+          ],
+          "correct": 2,
+          "points": 15
+        }
+      ]
+    },
+    {
+      "section": "1.2: Symbolic AI vs Connectionist AI",
+      "questions": [
+        {
+          "id": "cai-5",
+          "type": "multiple-answer",
+          "question": "Based on the comparison table, which of the following are characteristics of Symbolic AI? Select all that apply.",
+          "options": [
+            "It learns patterns by adjusting weights between neurons.",
+            "It uses clear logic, rules, and symbols created by humans.",
+            "It is described as a mysterious 'black box'.",
+            "It is brittle and easily confused by chaos.",
+            "It thinks like a web that learns through experience."
+          ],
+          "correct": [1, 3],
+          "points": 20
+        },
+        {
+          "id": "cai-6",
+          "type": "true-false",
+          "question": "Connectionist AI is described as being 'brittle and easily confused by chaos'.",
+          "correct": false,
+          "points": 10
+        },
+        {
+          "id": "cai-7",
+          "type": "multiple-choice",
+          "question": "How does the text describe the thinking process of Connectionist AI?",
+          "options": [
+            "Like Sherlock Holmes writing rules on a whiteboard.",
+            "Like a big logic puzzle where everything must fit perfectly.",
+            "Like a baby learning to 'feel' patterns after seeing thousands of examples.",
+            "Like a calculator solving a math problem."
+          ],
+          "correct": 2,
+          "points": 15
+        },
+        {
+          "id": "cai-8",
+          "type": "fill-in-bank",
+          "question": "A _________ is a numeric value that controls how strongly one neuron’s signal affects another.",
+          "blanks": [
+            {
+              "position": 1,
+              "correct": "Weight"
+            }
+          ],
+          "bank": [
+            "Symbol",
+            "Rule",
+            "Weight",
+            "Neuron"
+          ],
+          "points": 20
+        },
+        {
+          "id": "cai-9",
+          "type": "true-false",
+          "question": "According to the text, Symbolic AI would have no problem identifying a cat from a fuzzy, unclear photo.",
+          "correct": false,
+          "points": 10
+        }
+      ]
+    },
+    {
+      "section": "1.3: History and Evolution",
+      "questions": [
+        {
+          "id": "cai-10",
+          "type": "multiple-choice",
+          "question": "Who were the researchers credited with reviving Connectionism in the 1980s with Parallel Distributed Processing (PDP)?",
+          "options": [
+            "Aditya and the 'hello_world' team",
+            "Rumelhart and McClelland",
+            "Zhang Feng Nian",
+            "Sherlock Holmes"
+          ],
+          "correct": 1,
+          "points": 15
+        },
+        {
+          "id": "cai-11",
+          "type": "fill-in-bank",
+          "question": "The 'secret weapon' that allows an AI to learn from its mistakes by tweaking its weights is called _________.",
+          "blanks": [
+            {
+              "position": 1,
+              "correct": "Backpropagation"
+            }
+          ],
+          "bank": [
+            "Deep Learning",
+            "Symbolic AI",
+            "Backpropagation",
+            "PDP"
+          ],
+          "points": 20
+        },
+        {
+          "id": "cai-12",
+          "type": "multiple-choice",
+          "question": "Which era of AI is associated with the 'Vibe Check': 'Humans make all the rules! I’m basically math in a tuxedo 🤓'?",
+          "options": [
+            "1950s–1970s (Symbolic AI)",
+            "1980s–2000s (Connectionism)",
+            "2010s–Now (Deep Learning)",
+            "The Future"
+          ],
+          "correct": 0,
+          "points": 15
+        },
+        {
+          "id": "cai-13",
+          "type": "true-false",
+          "question": "The evolution of AI described in the text moved from rule-based systems to learning-based systems.",
+          "correct": true,
+          "points": 10
+        }
+      ]
+    },
+    {
+      "section": "1.4: Hybrid Systems and The Power of Connectionism",
+      "questions": [
+        {
+          "id": "cai-14",
+          "type": "multiple-choice",
+          "question": "What is the main benefit of combining Symbolic and Connectionist AI, as shown in the robot example?",
+          "options": [
+            "It makes the AI run faster on older computers.",
+            "It allows the system to use both pattern recognition (brain) and logical reasoning.",
+            "It eliminates the need for training data.",
+            "It makes the AI's code shorter and simpler."
+          ],
+          "correct": 1,
+          "points": 15
+        },
+        {
+          "id": "cai-15",
+          "type": "multiple-answer",
+          "question": "Which of the following are tasks that Connectionist AI systems excel at? Select all that apply.",
+          "options": [
+            "Recognizing faces",
+            "Translating speech",
+            "Explaining its reasoning step-by-step",
+            "Detecting diseases from X-rays",
+            "Following strict, human-written rules"
+          ],
+          "correct": [0, 1, 3],
+          "points": 20
+        },
+        {
+          "id": "cai-16",
+          "type": "true-false",
+          "question": "The 'black box' problem refers to the fact that Connectionist AI is always easy to explain and understand.",
+          "correct": false,
+          "points": 10
+        },
+        {
+          "id": "cai-17",
+          "type": "fill-in-bank",
+          "question": "The field of research that tries to make neural networks 'spill their secrets' and explain their choices is called _________ AI (XAI).",
+          "blanks": [
+            {
+              "position": 1,
+              "correct": "Explainable"
+            }
+          ],
+          "bank": [
+            "Symbolic",
+            "Reasonable",
+            "Ethical",
+            "Explainable"
+          ],
+          "points": 15
+        },
+        {
+          "id": "cai-18",
+          "type": "multiple-choice",
+          "question": "According to the final summary, which AI is like the 'chill genius friend who learns by doing'?",
+          "options": [
+            "Symbolic AI",
+            "Explainable AI (XAI)",
+            "Connectionist AI",
+            "Hybrid AI"
+          ],
+          "correct": 2,
+          "points": 10
+        }
+      ]
+    }
+  ]
+}

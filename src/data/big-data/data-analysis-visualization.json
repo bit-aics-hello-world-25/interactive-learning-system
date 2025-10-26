@@ -1,0 +1,576 @@
+{
+  "topic": "Data Analysis and Visualization",
+  "sections": [
+    {
+      "section": "3.1.1: What is Data analysis?",
+      "questions": [
+        {
+          "id": "da-1",
+          "type": "true-false",
+          "question": "Data analysis is a process used exclusively in the business world to make decisions more scientific.",
+          "correct": false,
+          "points": 10
+        },
+        {
+          "id": "da-2",
+          "type": "multiple-choice",
+          "question": "What is the primary goal of data analysis as described in the text?",
+          "options": [
+            "To create complex statistical models.",
+            "To store large amounts of information securely.",
+            "To discover useful information, inform conclusions, and support decision-making.",
+            "To replace human decision-making with automated processes."
+          ],
+          "correct": 2,
+          "points": 15
+        },
+        {
+          "id": "da-3",
+          "type": "multiple-answer",
+          "question": "Which of the following are identified as varieties of data analysis in the text? Select all that apply.",
+          "options": [
+            "Exploratory data analysis (EDA)",
+            "Predictive analytics",
+            "Data storage solutions",
+            "Confirmatory data analysis (CDA)",
+            "Text analytics"
+          ],
+          "correct": [0, 1, 3, 4],
+          "points": 20
+        },
+        {
+          "id": "da-4",
+          "type": "fill-in-bank",
+          "question": "_________ focuses on discovering new features in the data, while _________ focuses on confirming or falsifying existing hypotheses.",
+          "blanks": [
+            {
+              "position": 1,
+              "correct": "EDA"
+            },
+            {
+              "position": 2,
+              "correct": "CDA"
+            }
+          ],
+          "bank": [
+            "EDA",
+            "CDA",
+            "Statistics",
+            "Analytics",
+            "Descriptive",
+            "Predictive"
+          ],
+          "points": 20
+        }
+      ]
+    },
+    {
+      "section": "3.1.2-3.1.4: Data Requirements, Collection, and Processing",
+      "questions": [
+        {
+          "id": "da-5",
+          "type": "multiple-choice",
+          "question": "In the context of data requirements, what is an 'experimental unit'?",
+          "options": [
+            "A specific software used for analysis.",
+            "The general type of entity upon which data is collected.",
+            "A single numerical data point.",
+            "The final report generated from the analysis."
+          ],
+          "correct": 1,
+          "points": 15
+        },
+        {
+          "id": "da-6",
+          "type": "true-false",
+          "question": "According to the text, data can only be collected from internal organizational sources like IT personnel.",
+          "correct": false,
+          "points": 10
+        },
+        {
+          "id": "da-7",
+          "type": "multiple-answer",
+          "question": "Which of the following are mentioned as sources for data collection? Select all that apply.",
+          "options": [
+            "Sensors in the environment",
+            "Interviews",
+            "Downloads from online sources",
+            "Reading documentation",
+            "Hypothetical scenarios"
+          ],
+          "correct": [0, 1, 2, 3],
+          "points": 20
+        },
+        {
+          "id": "da-8",
+          "type": "fill-in-bank",
+          "question": "Placing data into rows and columns in a table format is known as _________ data.",
+          "blanks": [
+            {
+              "position": 1,
+              "correct": "structured"
+            }
+          ],
+          "bank": [
+            "structured",
+            "unstructured",
+            "processed",
+            "raw",
+            "clean"
+          ],
+          "points": 15
+        },
+        {
+          "id": "da-9",
+          "type": "true-false",
+          "question": "Data integration is a process that happens after data analysis is complete.",
+          "correct": false,
+          "points": 10
+        }
+      ]
+    },
+    {
+      "section": "3.1.5-3.1.6: Data Cleaning and Exploratory Analysis",
+      "questions": [
+        {
+          "id": "da-10",
+          "type": "multiple-choice",
+          "question": "What is the primary purpose of data cleaning?",
+          "options": [
+            "To visualize the data in graphical format.",
+            "To make the dataset larger.",
+            "To prevent and correct errors, duplicates, and incomplete data.",
+            "To collect new data from various sources."
+          ],
+          "correct": 2,
+          "points": 15
+        },
+        {
+          "id": "da-11",
+          "type": "multiple-answer",
+          "question": "Which of the following are common tasks involved in data cleaning? Select all that apply.",
+          "options": [
+            "Record matching",
+            "Deduplication",
+            "Data visualization",
+            "Column segmentation",
+            "Predictive modeling"
+          ],
+          "correct": [0, 1, 3],
+          "points": 20
+        },
+        {
+          "id": "da-12",
+          "type": "true-false",
+          "question": "The process of data exploration is a linear, one-time step that always occurs after all data cleaning is finished.",
+          "correct": false,
+          "points": 10
+        },
+        {
+          "id": "da-13",
+          "type": "fill-in-bank",
+          "question": "During exploratory data analysis, _________ _________ is used to examine the data in a graphical format to obtain additional insights.",
+          "blanks": [
+            {
+              "position": 1,
+              "correct": "data"
+            },
+            {
+              "position": 2,
+              "correct": "visualization"
+            }
+          ],
+          "bank": [
+            "data",
+            "visualization",
+            "statistical",
+            "analysis",
+            "descriptive",
+            "statistics"
+          ],
+          "points": 20
+        }
+      ]
+    },
+    {
+      "section": "3.2.1: Descriptive Analysis",
+      "questions": [
+        {
+          "id": "da-14",
+          "type": "multiple-choice",
+          "question": "Descriptive analytics primarily seeks to answer which question?",
+          "options": [
+            "What will happen next?",
+            "What should we do about it?",
+            "Why did it happen?",
+            "What has happened in the past?"
+          ],
+          "correct": 3,
+          "points": 15
+        },
+        {
+          "id": "da-15",
+          "type": "true-false",
+          "question": "Social media analytics, such as tracking likes and comments on a post, is an example of predictive analytics.",
+          "correct": false,
+          "points": 10
+        },
+        {
+          "id": "da-16",
+          "type": "fill-in-bank",
+          "question": "The two main techniques used for historical data collection in descriptive analytics are data _________ and data _________.",
+          "blanks": [
+            {
+              "position": 1,
+              "correct": "aggregation"
+            },
+            {
+              "position": 2,
+              "correct": "mining"
+            }
+          ],
+          "bank": [
+            "aggregation",
+            "mining",
+            "cleaning",
+            "processing",
+            "visualization",
+            "modeling"
+          ],
+          "points": 25
+        }
+      ]
+    },
+    {
+      "section": "3.2.2: Diagnostic Analysis",
+      "questions": [
+        {
+          "id": "da-17",
+          "type": "multiple-choice",
+          "question": "What is the main goal of diagnostic analytics?",
+          "options": [
+            "To describe what is currently happening.",
+            "To predict future outcomes.",
+            "To understand the root causes of events and outcomes.",
+            "To recommend a course of action."
+          ],
+          "correct": 2,
+          "points": 15
+        },
+        {
+          "id": "da-18",
+          "type": "multiple-answer",
+          "question": "Which of the following are purposes of diagnostic analytics mentioned in the text? Select all that apply.",
+          "options": [
+            "Finding the root cause",
+            "Forecasting future sales",
+            "Improving processes",
+            "Managing risk",
+            "Automating decisions"
+          ],
+          "correct": [0, 2, 3],
+          "points": 20
+        },
+        {
+          "id": "da-19",
+          "type": "true-false",
+          "question": "A significant challenge in diagnostic analytics is the 'causality vs. correlation' issue, where it's difficult to prove one event caused another.",
+          "correct": true,
+          "points": 10
+        },
+        {
+          "id": "da-20",
+          "type": "fill-in-bank",
+          "question": "In healthcare, diagnostic analytics can analyze _________ rates to find issues like inadequate post-surgical care instructions.",
+          "blanks": [
+            {
+              "position": 1,
+              "correct": "re-admission"
+            }
+          ],
+          "bank": [
+            "re-admission",
+            "mortality",
+            "satisfaction",
+            "infection",
+            "recovery"
+          ],
+          "points": 20
+        },
+        {
+          "id": "da-21",
+          "type": "multiple-choice",
+          "question": "What is the first step in the diagnostic analytics workflow described in the text?",
+          "options": [
+            "Data collection",
+            "Hypothesis formulation",
+            "Define the problem or objective",
+            "Exploratory data analysis (EDA)"
+          ],
+          "correct": 2,
+          "points": 15
+        }
+      ]
+    },
+    {
+      "section": "3.2.3: Predictive Analysis",
+      "questions": [
+        {
+          "id": "da-22",
+          "type": "true-false",
+          "question": "Predictive analytics is primarily backward-looking, focusing only on past events.",
+          "correct": false,
+          "points": 10
+        },
+        {
+          "id": "da-23",
+          "type": "multiple-choice",
+          "question": "Which predictive analysis model was developed by imitating the way the human brain works and can deal with complex data relationships?",
+          "options": [
+            "Decision Trees",
+            "Regression",
+            "Neural Networks",
+            "Cluster Models"
+          ],
+          "correct": 2,
+          "points": 15
+        },
+        {
+          "id": "da-24",
+          "type": "multiple-answer",
+          "question": "Which of the following are listed as applications of predictive analytics? Select all that apply.",
+          "options": [
+            "Credit scoring",
+            "Insurance underwriting",
+            "Stock trading forecasts",
+            "Describing historical sales data",
+            "Marketing campaign planning"
+          ],
+          "correct": [0, 1, 2, 4],
+          "points": 20
+        },
+        {
+          "id": "da-25",
+          "type": "fill-in-bank",
+          "question": "A company using data analytics to better understand if a customer poses a higher-than-average risk of defaulting is an example of the _________ _________ benefit of predictive analytics.",
+          "blanks": [
+            {
+              "position": 1,
+              "correct": "risk"
+            },
+            {
+              "position": 2,
+              "correct": "reduction"
+            }
+          ],
+          "bank": [
+            "risk",
+            "reduction",
+            "operational",
+            "efficiency",
+            "improved",
+            "decision"
+          ],
+          "points": 25
+        }
+      ]
+    },
+    {
+      "section": "3.2.4: Prescriptive Analysis",
+      "questions": [
+        {
+          "id": "da-26",
+          "type": "multiple-choice",
+          "question": "Prescriptive analytics primarily seeks to answer which of the following questions?",
+          "options": [
+            "What happened?",
+            "Why did it happen?",
+            "What will happen?",
+            "What should we do?"
+          ],
+          "correct": 3,
+          "points": 15
+        },
+        {
+          "id": "da-27",
+          "type": "true-false",
+          "question": "One of the benefits of prescriptive analytics is that it completely eliminates the need for human intuition and judgment in all situations.",
+          "correct": false,
+          "points": 10
+        },
+        {
+          "id": "da-28",
+          "type": "multiple-answer",
+          "question": "What are some of the challenges associated with implementing prescriptive analytics? Select all that apply.",
+          "options": [
+            "It can be expensive.",
+            "It simplifies complex decisions too much.",
+            "Invalid inputs will result in invalid outputs.",
+            "Models can take a significant amount of time to refine."
+          ],
+          "correct": [0, 2, 3],
+          "points": 20
+        }
+      ]
+    },
+    {
+      "section": "3.3.1: The Role of Machine Learning in Big Data Analysis",
+      "questions": [
+        {
+          "id": "da-29",
+          "type": "multiple-choice",
+          "question": "What is the crucial role of Machine Learning (ML) in Big Data (BD)?",
+          "options": [
+            "To generate the 2.5 quintillion bytes of data created daily.",
+            "To serve as the cornerstone of efficient data processing and analysis, extracting valuable insights.",
+            "To structure the 80% of data that is unstructured.",
+            "To replace the need for system architecture and user feedback."
+          ],
+          "correct": 1,
+          "points": 15
+        },
+        {
+          "id": "da-30",
+          "type": "true-false",
+          "question": "The 'Variety' of Big Data refers to the high speed at which data is generated and must be processed.",
+          "correct": false,
+          "points": 10
+        },
+        {
+          "id": "da-31",
+          "type": "fill-in-bank",
+          "question": "The four dimensions of Big Data that pose challenges for ML are volume, velocity, variety, and _________.",
+          "blanks": [
+            {
+              "position": 1,
+              "correct": "veracity"
+            }
+          ],
+          "bank": [
+            "veracity",
+            "validity",
+            "virtue",
+            "vision",
+            "value"
+          ],
+          "points": 20
+        },
+        {
+          "id": "da-32",
+          "type": "multiple-choice",
+          "question": "The 'Veracity' dimension of Big Data is primarily concerned with what aspect of the data?",
+          "options": [
+            "The sheer size of the dataset.",
+            "The speed of data streams.",
+            "The different formats of data.",
+            "The reliability and trustworthiness of the information."
+          ],
+          "correct": 3,
+          "points": 15
+        }
+      ]
+    },
+    {
+      "section": "3.3.2: The Role of AI in Big Data Analysis",
+      "questions": [
+        {
+          "id": "da-33",
+          "type": "true-false",
+          "question": "The relationship between AI and big data is synergistic, meaning they mutually benefit each other.",
+          "correct": true,
+          "points": 10
+        },
+        {
+          "id": "da-34",
+          "type": "multiple-answer",
+          "question": "In which phases of the big data cycle can AI assist users? Select all that apply.",
+          "options": [
+            "Data management",
+            "Decision management",
+            "Risk management",
+            "Goal management",
+            "Data generation"
+          ],
+          "correct": [0, 1, 2, 3],
+          "points": 20
+        },
+        {
+          "id": "da-35",
+          "type": "fill-in-bank",
+          "question": "AI can learn by watching how a user interacts with an analytics program, surfacing _________ insights from massive datasets fast.",
+          "blanks": [
+            {
+              "position": 1,
+              "correct": "unexpected"
+            }
+          ],
+          "bank": [
+            "unexpected",
+            "obvious",
+            "incorrect",
+            "historical",
+            "simple"
+          ],
+          "points": 20
+        }
+      ]
+    },
+    {
+      "section": "3.4: Data Visualization",
+      "questions": [
+        {
+          "id": "da-36",
+          "type": "multiple-choice",
+          "question": "What is the primary goal of data visualization?",
+          "options": [
+            "To perform complex statistical analysis.",
+            "To clean and process raw data.",
+            "To tell a story by curating data into a form that is easier to understand.",
+            "To store data in a graphical database."
+          ],
+          "correct": 2,
+          "points": 15
+        },
+        {
+          "id": "da-37",
+          "type": "true-false",
+          "question": "Effective data visualization is a delicate balancing act between form (aesthetics) and function (conveying information).",
+          "correct": true,
+          "points": 10
+        },
+        {
+          "id": "da-38",
+          "type": "multiple-choice",
+          "question": "Which type of visualization shows data in map form to illustrate relationships between data and specific locations?",
+          "options": [
+            "Infographic",
+            "Dashboard",
+            "Geospatial",
+            "Table"
+          ],
+          "correct": 2,
+          "points": 15
+        },
+        {
+          "id": "da-39",
+          "type": "fill-in-bank",
+          "question": "A _________ is a collection of visualizations and data displayed in one place to help with analyzing and presenting data.",
+          "blanks": [
+            {
+              "position": 1,
+              "correct": "Dashboard"
+            }
+          ],
+          "bank": [
+            "Dashboard",
+            "Chart",
+            "Graph",
+            "Table",
+            "Infographic"
+          ],
+          "points": 20
+        }
+      ]
+    }
+  ]
+}

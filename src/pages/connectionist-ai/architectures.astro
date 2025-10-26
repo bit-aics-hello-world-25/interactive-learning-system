@@ -1,0 +1,17 @@
+---
+import Quiz from '../../components/Quiz.astro';
+import bigDataQuestions from '../../data/connectionist-ai/architectures.json';
+
+// Flatten all questions, but add the section title to each question object
+const allQuestions = bigDataQuestions.sections.flatMap(section => 
+	section.questions.map(question => ({
+		...question,
+		sectionTitle: section.section
+	}))
+);
+
+const topic = bigDataQuestions.topic;
+const nextSectionUrl = "/big-data/chapters";
+---
+
+<Quiz topic={topic} questions={allQuestions} nextSectionUrl={nextSectionUrl}/>

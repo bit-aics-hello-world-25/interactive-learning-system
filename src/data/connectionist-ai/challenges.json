@@ -1,0 +1,258 @@
+{
+  "topic": "Neural Networks",
+  "sections": [
+    {
+      "section": "6.1: THE TECHNICAL TROUBLES TOUR: Challenges in Neural Networks!",
+      "questions": [
+        {
+          "id": "nn-c-1",
+          "type": "multiple-choice",
+          "question": "What is the 'Data & Compute Hunger' challenge primarily about?",
+          "options": [
+            "Neural networks getting viruses from bad data.",
+            "The need for gigantic datasets, massive computing power, and significant financial investment to train modern models.",
+            "The difficulty in finding enough programmers to build neural networks.",
+            "The slow speed of internet connections when downloading data."
+          ],
+          "correct": 1,
+          "points": 10
+        },
+        {
+          "id": "nn-c-2",
+          "type": "multiple-answer",
+          "question": "According to the text, what are the negative consequences of the high resource requirements for training neural networks? (Select all that apply)",
+          "options": [
+            "It makes AI development unfair, favoring large tech companies.",
+            "It leads to simpler, less powerful AI models being created.",
+            "It has a negative impact on the environment due to high energy consumption.",
+            "It causes the price of computers to increase for everyone."
+          ],
+          "correct": [0, 2],
+          "points": 20
+        },
+        {
+          "id": "nn-c-3",
+          "type": "true-false",
+          "question": "The 'vanishing gradient' problem occurs when the learning signal in a deep network grows uncontrollably large.",
+          "correct": false,
+          "points": 10
+        },
+        {
+          "id": "nn-c-4",
+          "type": "fill-in-bank",
+          "question": "When a neural network memorizes training examples instead of learning general patterns, it is known as _________.",
+          "blanks": [
+            {
+              "position": 1,
+              "correct": "overfitting"
+            }
+          ],
+          "bank": [
+            "overfitting",
+            "forgetting",
+            "exploding",
+            "normalizing",
+            "scaling"
+          ],
+          "points": 15
+        },
+        {
+          "id": "nn-c-5",
+          "type": "multiple-choice",
+          "question": "Which technique is used to combat overfitting by randomly 'turning off' some neurons during training?",
+          "options": [
+            "Batch Normalization",
+            "Weight Decay",
+            "Dropout",
+            "Elastic Weight Consolidation (EWC)"
+          ],
+          "correct": 2,
+          "points": 15
+        },
+        {
+          "id": "nn-c-6",
+          "type": "true-false",
+          "question": "'Catastrophic forgetting' is when a neural network gets fooled by slightly modified images.",
+          "correct": false,
+          "points": 10
+        },
+        {
+          "id": "nn-c-7",
+          "type": "multiple-choice",
+          "question": "What is an 'adversarial example'?",
+          "options": [
+            "A dataset that is too difficult for any AI to learn.",
+            "An input, like an image, that has been slightly altered to cause an AI to make a mistake.",
+            "A type of AI that is designed to compete against another AI.",
+            "A programming error that causes the network to crash."
+          ],
+          "correct": 1,
+          "points": 15
+        },
+        {
+          "id": "nn-c-8",
+          "type": "fill-in-bank",
+          "question": "The challenge that addresses the unequal distribution of resources like GPUs and data, favoring large labs, is called _________ & Fairness.",
+          "blanks": [
+            {
+              "position": 1,
+              "correct": "Scalability"
+            }
+          ],
+          "bank": [
+            "Adversarial",
+            "Forgetting",
+            "Interpretability",
+            "Scalability"
+          ],
+          "points": 15
+        }
+      ]
+    },
+    {
+      "section": "6.2: The “Black Box” Problem & Interpretability",
+      "questions": [
+        {
+          "id": "nn-c-9",
+          "type": "true-false",
+          "question": "The 'Black Box Problem' means that even the creators of a neural network always understand the exact reasoning behind its specific answers.",
+          "correct": false,
+          "points": 10
+        },
+        {
+          "id": "nn-c-10",
+          "type": "multiple-choice",
+          "question": "Why is the lack of transparency in neural networks a major concern for decisions about loans or medical treatments?",
+          "options": [
+            "It makes the AI run slower.",
+            "It's impossible to know if the decision was fair, accurate, or based on flawed reasoning.",
+            "It requires more expensive computers to get an explanation.",
+            "It violates the AI's right to privacy."
+          ],
+          "correct": 1,
+          "points": 15
+        },
+        {
+          "id": "nn-c-11",
+          "type": "multiple-answer",
+          "question": "Which of the following are techniques mentioned in the text for 'peeking inside' a black box model? (Select all that apply)",
+          "options": [
+            "Dropout",
+            "LIME (Local explanations)",
+            "SHAP (Feature attribution)",
+            "Batch Normalization"
+          ],
+          "correct": [1, 2],
+          "points": 20
+        },
+        {
+          "id": "nn-c-12",
+          "type": "fill-in-bank",
+          "question": "Instead of storing 'if-then' rules, neural networks build internal ________ and complex math relationships across layers.",
+          "blanks": [
+            {
+              "position": 1,
+              "correct": "patterns"
+            }
+          ],
+          "bank": [
+            "databases",
+            "documents",
+            "patterns",
+            "rulesets"
+          ],
+          "points": 15
+        }
+      ]
+    },
+    {
+      "section": "6.3: ETHICAL & PRIVACY CONSIDERATIONS",
+      "questions": [
+        {
+          "id": "nn-c-13",
+          "type": "true-false",
+          "question": "A neural network can become biased if the data it is trained on is biased.",
+          "correct": true,
+          "points": 10
+        },
+        {
+          "id": "nn-c-14",
+          "type": "multiple-choice",
+          "question": "What did the 'Gender Shades' study demonstrate?",
+          "options": [
+            "AI is better at recognizing faces than humans.",
+            "Facial recognition systems can have lower accuracy for certain demographic groups due to biased training data.",
+            "All facial recognition systems are equally fair and accurate.",
+            "AI cannot be used to identify gender from a photo."
+          ],
+          "correct": 1,
+          "points": 15
+        },
+        {
+          "id": "nn-c-15",
+          "type": "multiple-answer",
+          "question": "Which of the following are privacy attacks that can be used against a neural network? (Select all that apply)",
+          "options": [
+            "Adversarial Attack",
+            "Membership Inference",
+            "Model Inversion",
+            "Gradient Explosion"
+          ],
+          "correct": [1, 2],
+          "points": 20
+        },
+        {
+          "id": "nn-c-16",
+          "type": "multiple-choice",
+          "question": "What is the goal of a 'Model Inversion' attack?",
+          "options": [
+            "To crash the model.",
+            "To determine if a specific person's data was used in training.",
+            "To reverse-engineer and reconstruct pieces of the original training data.",
+            "To make the model forget what it has learned."
+          ],
+          "correct": 2,
+          "points": 15
+        },
+        {
+          "id": "nn-c-17",
+          "type": "true-false",
+          "question": "Europe's GDPR law gives individuals the right to object to fully automated decisions made about them.",
+          "correct": true,
+          "points": 10
+        },
+        {
+          "id": "nn-c-18",
+          "type": "fill-in-bank",
+          "question": "A mitigation technique that involves adding mathematical noise during training to protect privacy is called _________ Privacy.",
+          "blanks": [
+            {
+              "position": 1,
+              "correct": "Differential"
+            }
+          ],
+          "bank": [
+            "Essential",
+            "Differential",
+            "Integral",
+            "Audited"
+          ],
+          "points": 20
+        },
+        {
+          "id": "nn-c-19",
+          "type": "multiple-choice",
+          "question": "What is the purpose of a 'Human-in-the-Loop' system in AI?",
+          "options": [
+            "To have a person write the code for the AI.",
+            "To have a human user provide the initial data.",
+            "To ensure a human reviews the AI's decisions, especially when the stakes are high.",
+            "To have a person manually restart the AI if it crashes."
+          ],
+          "correct": 2,
+          "points": 15
+        }
+      ]
+    }
+  ]
+}

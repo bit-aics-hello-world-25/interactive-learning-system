@@ -1,0 +1,236 @@
+{
+  "topic": "Big Data",
+  "sections": [
+    {
+      "section": "1.3: Application & Case Study",
+      "questions": [
+        {
+          "id": "bd-7",
+          "type": "multiple-choice",
+          "question": "According to the text, how do platforms like Spotify create hyper-personalized experiences such as the 'Discover Weekly' playlist?",
+          "options": [
+            "By randomly selecting popular items from their catalog.",
+            "By only using data from the user's most recent session.",
+            "By analyzing large volumes of data including user history, patterns, and comparisons with other users.",
+            "By exclusively promoting content from paid sponsors."
+          ],
+          "correct": 2,
+          "points": 15
+        },
+        {
+          "id": "bd-8",
+          "type": "true-false",
+          "question": "Personalized recommendation systems only use structured data, like the price of an item, to make suggestions.",
+          "correct": false,
+          "points": 10
+        },
+        {
+          "id": "bd-9",
+          "type": "multiple-answer",
+          "question": "Which of the following data types are used by recommendation engines to create a personalized experience? Select all that apply.",
+          "options": [
+            "Your past purchase/listening history",
+            "What items you skipped or disliked",
+            "Unstructured data like user comments and reviews",
+            "Your friends' preferences",
+            "The current weather in your city"
+          ],
+          "correct": [0, 1, 2, 3],
+          "points": 20
+        },
+        {
+          "id": "bd-10",
+          "type": "fill-in-bank",
+          "question": "The system operates at high _________, making sure its recommendations are _________-_________ and relevant to what you just watched or liked.",
+          "blanks": [
+            {
+              "position": 1,
+              "correct": "velocity"
+            },
+            {
+              "position": 2,
+              "correct": "real-time"
+            }
+          ],
+          "bank": [
+            "velocity",
+            "volume",
+            "variety",
+            "real-time",
+            "historical",
+            "accurate"
+          ],
+          "points": 25
+        },
+        {
+          "id": "bd-11",
+          "type": "multiple-choice",
+          "question": "How has Big Data primarily changed the focus of business intelligence?",
+          "options": [
+            "It focuses exclusively on analyzing past sales reports.",
+            "It has made data analysis slower but more thorough.",
+            "It shifted the focus from historical analysis to a proactive, predictive guidance system.",
+            "It eliminated the need for human decision-makers."
+          ],
+          "correct": 2,
+          "points": 15
+        },
+        {
+          "id": "bd-12",
+          "type": "true-false",
+          "question": "With Big Data, businesses must wait for a quarter-end report to see how an online ad campaign is performing.",
+          "correct": false,
+          "points": 10
+        },
+        {
+          "id": "bd-13",
+          "type": "multiple-answer",
+          "question": "Which of the following are examples of data sources that Big Data allows a business to integrate for better decision-making? Select all that apply.",
+          "options": [
+            "Social media comments",
+            "Employee payroll records",
+            "Customer support emails",
+            "Competitor prices",
+            "Touch/click stream data"
+          ],
+          "correct": [0, 2, 3, 4],
+          "points": 20
+        },
+        {
+          "id": "bd-14",
+          "type": "fill-in-bank",
+          "question": "Big Data changes business intelligence from a historical analysis to a guidance system that produces _________ information.",
+          "blanks": [
+            {
+              "position": 1,
+              "correct": "actionable"
+            }
+          ],
+          "bank": [
+            "historical",
+            "quarterly",
+            "actionable",
+            "random",
+            "limited"
+          ],
+          "points": 20
+        },
+        {
+          "id": "bd-15",
+          "type": "true-false",
+          "question": "Traditional fraud detection systems were highly effective because their static, rule-based approach was difficult for fraudsters to bypass.",
+          "correct": false,
+          "points": 10
+        },
+        {
+          "id": "bd-16",
+          "type": "multiple-choice",
+          "question": "What was a significant limitation of traditional fraud detection mentioned in the text?",
+          "options": [
+            "It required too much computing power.",
+            "Analysis was often done in slow, overnight batches, discovering fraud too late.",
+            "The rules were too complex for the system to handle.",
+            "It could only analyze data from a single country."
+          ],
+          "correct": 1,
+          "points": 15
+        },
+        {
+          "id": "bd-17",
+          "type": "fill-in-bank",
+          "question": "Big data fraud detection systems train _________ _________ models on tons of historical data to understand what a normal transaction looks like.",
+          "blanks": [
+            {
+              "position": 1,
+              "correct": "machine"
+            },
+            {
+              "position": 2,
+              "correct": "learning"
+            }
+          ],
+          "bank": [
+            "machine",
+            "learning",
+            "rule",
+            "based",
+            "data",
+            "siloed"
+          ],
+          "points": 25
+        },
+        {
+          "id": "bd-18",
+          "type": "multiple-answer",
+          "question": "According to the text, how does Big Data enhance fraud detection? Select all that apply.",
+          "options": [
+            "By analyzing data in real-time to detect deviations quickly.",
+            "By using machine learning to recognize normal patterns and spot anomalies.",
+            "By relying on a fixed set of static rules for consistency.",
+            "By integrating data from previously siloed databases to see the big picture.",
+            "By manually reviewing every single transaction over $100."
+          ],
+          "correct": [0, 1, 3],
+          "points": 20
+        },
+        {
+          "id": "bd-19",
+          "type": "multiple-choice",
+          "question": "In transportation and logistics, why is efficiency and optimization so critical?",
+          "options": [
+            "Because there are very few vehicles to manage.",
+            "Because profit margins for single units are slim and the business is based on volume.",
+            "Because drivers prefer to follow the same route every day.",
+            "Because fuel costs are insignificant."
+          ],
+          "correct": 1,
+          "points": 15
+        },
+        {
+          "id": "bd-20",
+          "type": "true-false",
+          "question": "The ORION system used by UPS relies solely on historical traffic data to plan routes for the day.",
+          "correct": false,
+          "points": 10
+        },
+        {
+          "id": "bd-21",
+          "type": "fill-in-bank",
+          "question": "Real-time data from thousands of phones is instantly processed (_________), which is then compared to the massive _________ of historical traffic data to predict route times.",
+          "blanks": [
+            {
+              "position": 1,
+              "correct": "velocity"
+            },
+            {
+              "position": 2,
+              "correct": "volume"
+            }
+          ],
+          "bank": [
+            "volume",
+            "variety",
+            "velocity",
+            "veracity",
+            "value"
+          ],
+          "points": 25
+        },
+        {
+          "id": "bd-22",
+          "type": "multiple-answer",
+          "question": "What are the stated benefits of using Big Data for logistics companies like UPS and JD? Select all that apply.",
+          "options": [
+            "Saving fuel",
+            "Improving delivery speed",
+            "Reducing the number of delivery personnel",
+            "Improving customer satisfaction",
+            "Reducing costs"
+          ],
+          "correct": [0, 1, 3, 4],
+          "points": 20
+        }
+      ]
+    }
+  ]
+}

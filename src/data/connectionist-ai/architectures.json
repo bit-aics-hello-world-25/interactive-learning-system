@@ -1,0 +1,406 @@
+{
+  "topic": "Key Architectures & Applications",
+  "sections": [
+    {
+      "section": "5.1 Introduction",
+      "questions": [
+        {
+          "id": "kaa-1",
+          "type": "true-false",
+          "question": "The architecture of a neural network has little to no effect on its performance and generalization.",
+          "correct": false,
+          "points": 10
+        },
+        {
+          "id": "kaa-2",
+          "type": "multiple-choice",
+          "question": "What does the architecture of a neural network define?",
+          "options": [
+            "The programming language it is written in.",
+            "The amount of data it can process.",
+            "How its neurons are structured and connected.",
+            "The speed of the computer it runs on."
+          ],
+          "correct": 2,
+          "points": 15
+        },
+        {
+          "id": "kaa-3",
+          "type": "fill-in-bank",
+          "question": "The architecture of a neural network is like the _________ of a building.",
+          "blanks": [
+            {
+              "position": 1,
+              "correct": "blueprint"
+            }
+          ],
+          "bank": [
+            "foundation",
+            "blueprint",
+            "windows",
+            "framework",
+            "location"
+          ],
+          "points": 20
+        }
+      ]
+    },
+    {
+      "section": "5.2 Feedforward Neural Networks (FNNs)",
+      "questions": [
+        {
+          "id": "kaa-4",
+          "type": "true-false",
+          "question": "In a Feedforward Neural Network, data moves in a single direction from input to output without any feedback loops.",
+          "correct": true,
+          "points": 10
+        },
+        {
+          "id": "kaa-5",
+          "type": "multiple-choice",
+          "question": "Which of the following is a typical application for a Feedforward Neural Network?",
+          "options": [
+            "Recognizing cats in photos.",
+            "Translating a sentence from English to Spanish.",
+            "Predicting housing prices based on features.",
+            "Removing noise from a blurry photograph."
+          ],
+          "correct": 2,
+          "points": 15
+        },
+        {
+          "id": "kaa-6",
+          "type": "fill-in-bank",
+          "question": "The analogy for an FNN is a _________ where each step refines the product, but no feedback comes from the end back to the start.",
+          "blanks": [
+            {
+              "position": 1,
+              "correct": "conveyor belt"
+            }
+          ],
+          "bank": [
+            "feedback loop",
+            "storyteller",
+            "conveyor belt",
+            "magnifying glass"
+          ],
+          "points": 20
+        }
+      ]
+    },
+    {
+      "section": "5.3 Convolutional Neural Networks (CNNs)",
+      "questions": [
+        {
+          "id": "kaa-7",
+          "type": "true-false",
+          "question": "CNNs are primarily designed for processing sequential data like text and speech.",
+          "correct": false,
+          "points": 10
+        },
+        {
+          "id": "kaa-8",
+          "type": "multiple-answer",
+          "question": "Which of the following are key components of a CNN mentioned in the text? Select all that apply.",
+          "options": [
+            "Convolutional filters",
+            "Self-attention mechanisms",
+            "Pooling layers",
+            "Feedback loops",
+            "Fully connected layers"
+          ],
+          "correct": [0, 2, 4],
+          "points": 20
+        },
+        {
+          "id": "kaa-9",
+          "type": "multiple-choice",
+          "question": "What is the primary purpose of convolutional filters in a CNN?",
+          "options": [
+            "To compress the data.",
+            "To detect features like edges, textures, and patterns.",
+            "To perform the final classification.",
+            "To remember previous inputs in a sequence."
+          ],
+          "correct": 1,
+          "points": 15
+        },
+        {
+          "id": "kaa-10",
+          "type": "fill-in-bank",
+          "question": "The analogy used for a CNN is a _________ using a magnifying glass to scan small sections of an image.",
+          "blanks": [
+            {
+              "position": 1,
+              "correct": "detective"
+            }
+          ],
+          "bank": [
+            "storyteller",
+            "architect",
+            "detective",
+            "mechanic"
+          ],
+          "points": 15
+        }
+      ]
+    },
+    {
+      "section": "5.4 Recurrent Neural Networks (RNNs)",
+      "questions": [
+        {
+          "id": "kaa-11",
+          "type": "multiple-choice",
+          "question": "What is the key feature of RNNs that allows them to handle sequential data effectively?",
+          "options": [
+            "They use convolutional filters to find patterns.",
+            "They process the entire sequence in parallel.",
+            "They include loops that retain a memory of previous inputs.",
+            "They are unsupervised and do not require labeled data."
+          ],
+          "correct": 2,
+          "points": 15
+        },
+        {
+          "id": "kaa-12",
+          "type": "multiple-answer",
+          "question": "Which of the following are variants of RNNs designed to handle longer sequences? Select all that apply.",
+          "options": [
+            "BERT",
+            "LSTM (Long Short-Term Memory)",
+            "ViT",
+            "GRU (Gated Recurrent Unit)"
+          ],
+          "correct": [1, 3],
+          "points": 20
+        },
+        {
+          "id": "kaa-13",
+          "type": "true-false",
+          "question": "The order of data does not matter when using an RNN.",
+          "correct": false,
+          "points": 10
+        },
+        {
+          "id": "kaa-14",
+          "type": "fill-in-bank",
+          "question": "RNNs are analogous to a _________ who remembers what was said earlier to keep the narrative coherent.",
+          "blanks": [
+            {
+              "position": 1,
+              "correct": "storyteller"
+            }
+          ],
+          "bank": [
+            "detective",
+            "storyteller",
+            "summarizer",
+            "builder"
+          ],
+          "points": 15
+        }
+      ]
+    },
+    {
+      "section": "5.5 Autoencoders",
+      "questions": [
+        {
+          "id": "kaa-15",
+          "type": "true-false",
+          "question": "Autoencoders are a type of supervised learning model that requires labeled data to be trained.",
+          "correct": false,
+          "points": 10
+        },
+        {
+          "id": "kaa-16",
+          "type": "multiple-choice",
+          "question": "Which of the following is a primary application of an autoencoder?",
+          "options": [
+            "Language translation",
+            "Object detection in images",
+            "Noise reduction and data compression",
+            "Predicting the next word in a sentence"
+          ],
+          "correct": 2,
+          "points": 15
+        },
+        {
+          "id": "kaa-17",
+          "type": "fill-in-bank",
+          "question": "Autoencoders are used for _________ reduction, which involves reducing the number of variables in a dataset.",
+          "blanks": [
+            {
+              "position": 1,
+              "correct": "dimensionality"
+            }
+          ],
+          "bank": [
+            "noise",
+            "feature",
+            "dimensionality",
+            "complexity"
+          ],
+          "points": 20
+        }
+      ]
+    },
+    {
+      "section": "5.6 Transformer Networks",
+      "questions": [
+        {
+          "id": "kaa-18",
+          "type": "multiple-choice",
+          "question": "What core mechanism allows Transformers to process entire sequences in parallel and weigh the importance of different words?",
+          "options": [
+            "Recurrent loops",
+            "Convolutional filters",
+            "Self-attention",
+            "Pooling layers"
+          ],
+          "correct": 2,
+          "points": 15
+        },
+        {
+          "id": "kaa-19",
+          "type": "true-false",
+          "question": "Transformers process data step-by-step in a sequence, which makes them slower than RNNs.",
+          "correct": false,
+          "points": 10
+        },
+        {
+          "id": "kaa-20",
+          "type": "multiple-answer",
+          "question": "Which of the following are notable models based on the Transformer architecture mentioned in the text? Select all that apply.",
+          "options": [
+            "LSTM",
+            "BERT",
+            "GPT",
+            "GRU",
+            "ViT"
+          ],
+          "correct": [1, 2, 4],
+          "points": 20
+        }
+      ]
+    },
+    {
+      "section": "5.7 Comparative Summary of Architectures",
+      "questions": [
+        {
+          "id": "kaa-21",
+          "type": "multiple-choice",
+          "question": "According to the summary table, which architecture is best suited for image data?",
+          "options": [
+            "FNN",
+            "CNN",
+            "RNN",
+            "Transformer"
+          ],
+          "correct": 1,
+          "points": 15
+        },
+        {
+          "id": "kaa-22",
+          "type": "true-false",
+          "question": "The summary table indicates that a major limitation of RNNs is their inability to handle sequences.",
+          "correct": false,
+          "points": 10
+        },
+        {
+          "id": "kaa-23",
+          "type": "multiple-choice",
+          "question": "Which architecture's main limitation is listed as requiring high computation power?",
+          "options": [
+            "FNN",
+            "CNN",
+            "Autoencoder",
+            "Transformer"
+          ],
+          "correct": 3,
+          "points": 15
+        }
+      ]
+    },
+    {
+      "section": "5.8 Relationship Between Architecture, Performance, and Generalization",
+      "questions": [
+        {
+          "id": "kaa-24",
+          "type": "true-false",
+          "question": "Shallow networks are more likely to overfit small datasets compared to deep networks like Transformers.",
+          "correct": false,
+          "points": 10
+        },
+        {
+          "id": "kaa-25",
+          "type": "multiple-choice",
+          "question": "In the vehicle analogy, which architecture is compared to a truck that can carry a lot but moves slower?",
+          "options": [
+            "Bicycles (simple models)",
+            "Trucks (CNNs)",
+            "Rockets (Transformers)"
+          ],
+          "correct": 1,
+          "points": 15
+        },
+        {
+          "id": "kaa-26",
+          "type": "fill-in-bank",
+          "question": "Deep networks capture complex relationships but may _________ small datasets.",
+          "blanks": [
+            {
+              "position": 1,
+              "correct": "overfit"
+            }
+          ],
+          "bank": [
+            "underfit",
+            "ignore",
+            "overfit",
+            "simplify"
+          ],
+          "points": 20
+        }
+      ]
+    },
+    {
+      "section": "5.9 Conclusion",
+      "questions": [
+        {
+          "id": "kaa-27",
+          "type": "multiple-answer",
+          "question": "According to the conclusion, which three concepts are deeply interwoven in neural networks? Select all that apply.",
+          "options": [
+            "Architectural design",
+            "Data volume",
+            "Generalization",
+            "Performance",
+            "Hardware speed"
+          ],
+          "correct": [0, 2, 3],
+          "points": 20
+        },
+        {
+          "id": "kaa-28",
+          "type": "multiple-choice",
+          "question": "The conclusion states that 'architecture defines...' what for a model?",
+          "options": [
+            "how fast it trains.",
+            "how much data it needs.",
+            "what it can learn at all.",
+            "how well it avoids overfitting."
+          ],
+          "correct": 2,
+          "points": 15
+        },
+        {
+          "id": "kaa-29",
+          "type": "true-false",
+          "question": "The text concludes that intelligence in machines grows not just from data, but also from structure.",
+          "correct": true,
+          "points": 10
+        }
+      ]
+    }
+  ]
+}

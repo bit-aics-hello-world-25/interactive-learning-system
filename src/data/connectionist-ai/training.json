@@ -1,0 +1,312 @@
+{
+  "topic": "Training a Neural Network",
+  "sections": [
+    {
+      "section": "3.1: Introduction",
+      "questions": [
+        {
+          "id": "tnn-1",
+          "type": "true-false",
+          "question": "Training a neural network involves manually setting its internal weights and biases to pre-calculated correct values.",
+          "correct": false,
+          "points": 10
+        },
+        {
+          "id": "tnn-2",
+          "type": "multiple-choice",
+          "question": "The text compares training a neural network to what real-world activity?",
+          "options": [
+            "Building a complex machine",
+            "Solving a mathematical equation",
+            "Teaching a child to identify animals with flashcards",
+            "Navigating a maze"
+          ],
+          "correct": 2,
+          "points": 10
+        },
+        {
+          "id": "tnn-3",
+          "type": "fill-in-bank",
+          "question": "Training a neural network means teaching it to make accurate predictions by adjusting its internal parameters, which are its _________ and _________.",
+          "blanks": [
+            {
+              "position": 1,
+              "correct": "weights"
+            },
+            {
+              "position": 2,
+              "correct": "biases"
+            }
+          ],
+          "bank": [
+            "algorithms",
+            "biases",
+            "inputs",
+            "layers",
+            "weights"
+          ],
+          "points": 20
+        }
+      ]
+    },
+    {
+      "section": "3.2: The Core Concept: Learning by Error Correction",
+      "questions": [
+        {
+          "id": "tnn-4",
+          "type": "true-false",
+          "question": "The main goal of training is to find the optimal set of weights and biases so the network can accurately map inputs to outputs.",
+          "correct": true,
+          "points": 10
+        },
+        {
+          "id": "tnn-5",
+          "type": "multiple-choice",
+          "question": "The core concept of training a neural network is best described as:",
+          "options": [
+            "Randomly guessing until a correct answer is found.",
+            "Learning by correcting errors measured between predictions and actual outcomes.",
+            "Memorizing the entire training dataset perfectly.",
+            "Increasing the number of neurons until the network is large enough."
+          ],
+          "correct": 1,
+          "points": 15
+        }
+      ]
+    },
+    {
+      "section": "3.3: The Training Process in 5 Steps",
+      "questions": [
+        {
+          "id": "tnn-6",
+          "type": "multiple-choice",
+          "question": "Why are a network's weights and biases initialized with small, random numbers at the start of training?",
+          "options": [
+            "To make the initial predictions as accurate as possible.",
+            "To ensure the network runs faster.",
+            "To break symmetry and allow the learning process to begin effectively.",
+            "To make the math easier for the first forward pass."
+          ],
+          "correct": 2,
+          "points": 15
+        },
+        {
+          "id": "tnn-7",
+          "type": "true-false",
+          "question": "The 'Forward Pass' is the step where the network's weights are updated based on the calculated error.",
+          "correct": false,
+          "points": 10
+        },
+        {
+          "id": "tnn-8",
+          "type": "fill-in-bank",
+          "question": "The network's prediction is compared to the true label using a _________ _________ to measure the size of the mistake.",
+          "blanks": [
+            {
+              "position": 1,
+              "correct": "Loss"
+            },
+            {
+              "position": 2,
+              "correct": "Function"
+            }
+          ],
+          "bank": [
+            "Activation",
+            "Function",
+            "Gradient",
+            "Loss",
+            "Optimizer"
+          ],
+          "points": 20
+        },
+        {
+          "id": "tnn-9",
+          "type": "multiple-choice",
+          "question": "What does a high 'loss' value signify?",
+          "options": [
+            "The network is learning very quickly.",
+            "The network's prediction was very close to the correct answer.",
+            "The network has finished training.",
+            "The network's prediction was very inaccurate."
+          ],
+          "correct": 3,
+          "points": 10
+        },
+        {
+          "id": "tnn-10",
+          "type": "true-false",
+          "question": "Backpropagation is the process of sending the calculated error backward through the network to determine how to adjust the weights.",
+          "correct": true,
+          "points": 10
+        },
+        {
+          "id": "tnn-11",
+          "type": "multiple-answer",
+          "question": "What two things does the 'gradient' calculated during backpropagation tell the network? (Select two)",
+          "options": [
+            "The final prediction of the network.",
+            "The direction in which to adjust a weight to reduce loss.",
+            "The speed of the computer's processor.",
+            "How much a weight should be adjusted.",
+            "The number of layers in the network."
+          ],
+          "correct": [1, 3],
+          "points": 20
+        },
+        {
+          "id": "tnn-12",
+          "type": "multiple-choice",
+          "question": "What component is responsible for actually updating the weights using the gradients calculated by backpropagation?",
+          "options": [
+            "The Loss Function",
+            "The Input Layer",
+            "An Optimizer (like Gradient Descent)",
+            "The Activation Function"
+          ],
+          "correct": 2,
+          "points": 15
+        },
+        {
+          "id": "tnn-13",
+          "type": "true-false",
+          "question": "Setting a very high learning rate is always beneficial as it guarantees the network will learn faster and more accurately.",
+          "correct": false,
+          "points": 10
+        },
+        {
+          "id": "tnn-14",
+          "type": "multiple-answer",
+          "question": "Which of the following statements about the Learning Rate are true according to the text? (Select all that apply)",
+          "options": [
+            "A learning rate that is too high can cause the training to overshoot the optimal values.",
+            "The learning rate is automatically determined by the network.",
+            "A learning rate that is too low can make training very slow.",
+            "The learning rate's value increases after each epoch."
+          ],
+          "correct": [0, 2],
+          "points": 20
+        }
+      ]
+    },
+    {
+      "section": "3.4: The Training Loop",
+      "questions": [
+        {
+          "id": "tnn-15",
+          "type": "fill-in-bank",
+          "question": "One full pass through the entire training dataset is called one _________.",
+          "blanks": [
+            {
+              "position": 1,
+              "correct": "epoch"
+            }
+          ],
+          "bank": [
+            "batch",
+            "cycle",
+            "epoch",
+            "iteration",
+            "pass"
+          ],
+          "points": 15
+        },
+        {
+          "id": "tnn-16",
+          "type": "multiple-choice",
+          "question": "Which of the following correctly describes the sequence of events within a single iteration of the training loop?",
+          "options": [
+            "Update Weights -> Forward Pass -> Calculate Loss -> Backpropagation",
+            "Calculate Loss -> Backpropagation -> Forward Pass -> Update Weights",
+            "Forward Pass -> Calculate Loss -> Backpropagation -> Update Weights",
+            "Backpropagation -> Update Weights -> Calculate Loss -> Forward Pass"
+          ],
+          "correct": 2,
+          "points": 15
+        },
+        {
+          "id": "tnn-17",
+          "type": "true-false",
+          "question": "A neural network is typically fully trained after a single pass through the dataset (one epoch).",
+          "correct": false,
+          "points": 10
+        }
+      ]
+    },
+    {
+      "section": "3.5: Key Takeaways",
+      "questions": [
+        {
+          "id": "tnn-18",
+          "type": "multiple-choice",
+          "question": "The text describes which component as the 'engine' that makes learning possible by efficiently calculating how to assign blame to each weight?",
+          "options": [
+            "The Loss Function",
+            "Gradient Descent",
+            "The Learning Rate",
+            "Backpropagation"
+          ],
+          "correct": 3,
+          "points": 15
+        },
+        {
+          "id": "tnn-19",
+          "type": "fill-in-bank",
+          "question": "The _________ _________ is described as the 'compass' that tells the network which way to go to improve.",
+          "blanks": [
+            {
+              "position": 1,
+              "correct": "loss"
+            },
+            {
+              "position": 2,
+              "correct": "function"
+            }
+          ],
+          "bank": [
+            "backpropagation",
+            "descent",
+            "function",
+            "gradient",
+            "loss"
+          ],
+          "points": 20
+        },
+        {
+          "id": "tnn-20",
+          "type": "multiple-choice",
+          "question": "What is the primary role of an optimizer like Gradient Descent?",
+          "options": [
+            "To calculate the initial error of a prediction.",
+            "To randomly initialize the network's weights.",
+            "To change the weights in a way that minimizes the loss.",
+            "To feed data into the network's input layer."
+          ],
+          "correct": 2,
+          "points": 15
+        },
+        {
+          "id": "tnn-21",
+          "type": "true-false",
+          "question": "A network is considered 'trained' and ready for use on new data once the loss is acceptably low.",
+          "correct": true,
+          "points": 10
+        },
+        {
+          "id": "tnn-22",
+          "type": "multiple-answer",
+          "question": "Which of the following are identified as critical components or concepts for effective training? (Select all that apply)",
+          "options": [
+            "Backpropagation",
+            "The number of CPU cores",
+            "The Learning Rate",
+            "The Loss Function",
+            "The color of the flashcards"
+          ],
+          "correct": [0, 2, 3],
+          "points": 20
+        }
+      ]
+    }
+  ]
+}

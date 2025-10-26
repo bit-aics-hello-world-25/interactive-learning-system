@@ -1,0 +1,335 @@
+{
+  "topic": "Neural Network Basics",
+  "sections": [
+    {
+      "section": "2.1: What Is a Neural Network?",
+      "questions": [
+        {
+          "id": "nnb-1",
+          "type": "true-false",
+          "question": "Neural networks are a type of AI that must be explicitly programmed with rules to find patterns in data.",
+          "correct": false,
+          "points": 10
+        },
+        {
+          "id": "nnb-2",
+          "type": "multiple-choice",
+          "question": "What is the fundamental processing unit of a neural network, inspired by the human brain?",
+          "options": [
+            "A layer",
+            "A neuron",
+            "A bias",
+            "An algorithm"
+          ],
+          "correct": 1,
+          "points": 15
+        },
+        {
+          "id": "nnb-3",
+          "type": "fill-in-bank",
+          "question": "The _________ algorithm, popularized in the 1980s, was a major breakthrough that enabled the training of multi-layer networks.",
+          "blanks": [
+            {
+              "position": 1,
+              "correct": "Backpropagation"
+            }
+          ],
+          "bank": [
+            "Perceptron",
+            "McCulloch-Pitts",
+            "Backpropagation",
+            "Deep Learning"
+          ],
+          "points": 20
+        },
+        {
+          "id": "nnb-4",
+          "type": "multiple-answer",
+          "question": "Which factors fueled the 'deep learning boom' from the 2010s to the present? Select all that apply.",
+          "options": [
+            "The invention of the Perceptron",
+            "The availability of big data",
+            "The development of powerful GPUs",
+            "The creation of frameworks like TensorFlow and PyTorch"
+          ],
+          "correct": [1, 2, 3],
+          "points": 20
+        }
+      ]
+    },
+    {
+      "section": "2.2: Structure of a Neural Network",
+      "questions": [
+        {
+          "id": "nnb-5",
+          "type": "multiple-choice",
+          "question": "Which layer of a neural network is responsible for receiving the initial raw data?",
+          "options": [
+            "Input Layer",
+            "Hidden Layer",
+            "Output Layer",
+            "Processing Layer"
+          ],
+          "correct": 0,
+          "points": 10
+        },
+        {
+          "id": "nnb-6",
+          "type": "true-false",
+          "question": "The term 'Deep Learning' refers to neural networks that have many hidden layers.",
+          "correct": true,
+          "points": 10
+        },
+        {
+          "id": "nnb-7",
+          "type": "fill-in-bank",
+          "question": "In a neuron, a _________ is added to the weighted sum of inputs, acting as a kind of threshold.",
+          "blanks": [
+            {
+              "position": 1,
+              "correct": "bias"
+            }
+          ],
+          "bank": [
+            "weight",
+            "bias",
+            "layer",
+            "node"
+          ],
+          "points": 15
+        },
+        {
+          "id": "nnb-8",
+          "type": "multiple-choice",
+          "question": "In a network designed to identify cats in images, where would the detection of complex features like 'whiskers' or 'eye shape' most likely occur?",
+          "options": [
+            "In the Input Layer",
+            "In the Output Layer",
+            "In the deeper Hidden Layers",
+            "In the first Hidden Layer"
+          ],
+          "correct": 2,
+          "points": 15
+        }
+      ]
+    },
+    {
+      "section": "2.3: How It Works (Step-by-Step)",
+      "questions": [
+        {
+          "id": "nnb-9",
+          "type": "multiple-choice",
+          "question": "What is the name of the process where data is fed into the input layer and travels through the network to produce a prediction?",
+          "options": [
+            "Backpropagation",
+            "Weight Adjustment",
+            "The Forward Pass",
+            "Gradient Descent"
+          ],
+          "correct": 2,
+          "points": 15
+        },
+        {
+          "id": "nnb-10",
+          "type": "true-false",
+          "question": "The 'error' or 'loss' is calculated by comparing the network's prediction to the correct answer or label.",
+          "correct": true,
+          "points": 10
+        },
+        {
+          "id": "nnb-11",
+          "type": "fill-in-bank",
+          "question": "During _________, the calculated error is sent backwards through the network to help an optimizer tweak the weights and biases.",
+          "blanks": [
+            {
+              "position": 1,
+              "correct": "backpropagation"
+            }
+          ],
+          "bank": [
+            "optimization",
+            "the forward pass",
+            "backpropagation",
+            "prediction"
+          ],
+          "points": 20
+        }
+      ]
+    },
+    {
+      "section": "2.4: Common Activation Functions",
+      "questions": [
+        {
+          "id": "nnb-12",
+          "type": "multiple-choice",
+          "question": "Which activation function is defined by the formula `max(0, x)` and is known for being fast and common in deep networks?",
+          "options": [
+            "Sigmoid",
+            "tanh",
+            "Binary",
+            "ReLU"
+          ],
+          "correct": 3,
+          "points": 15
+        },
+        {
+          "id": "nnb-13",
+          "type": "true-false",
+          "question": "The Sigmoid activation function has an output range of (-1, 1).",
+          "correct": false,
+          "points": 10
+        },
+        {
+          "id": "nnb-14",
+          "type": "multiple-choice",
+          "question": "If you need an activation function whose output is centered around zero, which of these would be the best choice?",
+          "options": [
+            "ReLU",
+            "Sigmoid",
+            "tanh",
+            "Step Function"
+          ],
+          "correct": 2,
+          "points": 15
+        }
+      ]
+    },
+    {
+      "section": "2.5: Types of Neural Networks (Basics)",
+      "questions": [
+        {
+          "id": "nnb-15",
+          "type": "fill-in-bank",
+          "question": "_________ Neural Networks (CNNs) are particularly effective for image and video processing because they use filters to detect features.",
+          "blanks": [
+            {
+              "position": 1,
+              "correct": "Convolutional"
+            }
+          ],
+          "bank": [
+            "Recurrent",
+            "Feedforward",
+            "Convolutional",
+            "Transformer"
+          ],
+          "points": 15
+        },
+        {
+          "id": "nnb-16",
+          "type": "multiple-choice",
+          "question": "Which type of network is best suited for handling sequential data like text or time series due to its ability to handle memory?",
+          "options": [
+            "Feedforward (MLP)",
+            "Convolutional (CNN)",
+            "Recurrent (RNN/LSTM)",
+            "Perceptron"
+          ],
+          "correct": 2,
+          "points": 15
+        },
+        {
+          "id": "nnb-17",
+          "type": "true-false",
+          "question": "Transformer models, such as GPT, are a modern type of network that are considered a powerhouse for Natural Language Processing (NLP).",
+          "correct": true,
+          "points": 10
+        }
+      ]
+    },
+    {
+      "section": "2.6: Pros & Cons",
+      "questions": [
+        {
+          "id": "nnb-18",
+          "type": "multiple-answer",
+          "question": "According to the text, what are some of the disadvantages of neural networks? Select all that apply.",
+          "options": [
+            "They are computationally expensive",
+            "They are often difficult to interpret (a 'black-box')",
+            "They can be prone to overfitting",
+            "They cannot handle non-linear data"
+          ],
+          "correct": [0, 1, 2],
+          "points": 20
+        },
+        {
+          "id": "nnb-19",
+          "type": "true-false",
+          "question": "One of the major pros of neural networks is their ability to perform automatic feature learning from complex data.",
+          "correct": true,
+          "points": 10
+        },
+        {
+          "id": "nnb-20",
+          "type": "multiple-choice",
+          "question": "The 'black-box' nature of neural networks refers to what?",
+          "options": [
+            "They require a dark environment to run.",
+            "They are hard to interpret and understand their decision-making process.",
+            "They are only available as proprietary software.",
+            "They consume a lot of electrical power."
+          ],
+          "correct": 1,
+          "points": 15
+        }
+      ]
+    },
+    {
+      "section": "2.7: Example Use Cases",
+      "questions": [
+        {
+          "id": "nnb-21",
+          "type": "multiple-answer",
+          "question": "Which of the following are mentioned in the text as example use cases for neural networks?",
+          "options": [
+            "Language translation",
+            "Calculating simple arithmetic",
+            "Medical diagnosis",
+            "Speech recognition"
+          ],
+          "correct": [0, 2, 3],
+          "points": 20
+        },
+        {
+          "id": "nnb-22",
+          "type": "true-false",
+          "question": "The text indicates that predicting stock prices is a potential application of neural networks.",
+          "correct": true,
+          "points": 10
+        }
+      ]
+    },
+    {
+      "section": "2.8: Simple Example",
+      "questions": [
+        {
+          "id": "nnb-23",
+          "type": "multiple-choice",
+          "question": "In the simple example of predicting exam results, what does the output layer produce?",
+          "options": [
+            "The student's final score",
+            "The number of hours studied",
+            "The probability of passing",
+            "A pass or fail grade directly"
+          ],
+          "correct": 2,
+          "points": 15
+        },
+        {
+          "id": "nnb-24",
+          "type": "multiple-answer",
+          "question": "What are the inputs for the simple student exam prediction example? Select all that apply.",
+          "options": [
+            "Hours studied",
+            "Previous exam scores",
+            "Hours slept",
+            "The student's name"
+          ],
+          "correct": [0, 2],
+          "points": 15
+        }
+      ]
+    }
+  ]
+}
