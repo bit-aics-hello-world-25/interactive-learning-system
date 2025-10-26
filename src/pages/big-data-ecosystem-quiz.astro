@@ -6,9 +6,11 @@ import ecosystemQuestions from '../data/big-data-ecosystem-questions.json';
 const allQuestions = ecosystemQuestions.sections.flatMap(section => 
 	section.questions.map(question => ({
 		...question,
-		sectionTitle: section.title
+		sectionTitle: section.section
 	}))
 );
+
+const topic = ecosystemQuestions.topic;
 
 const quizDataJson = JSON.stringify({
 	topic: 'The Big Data Ecosystem & Lifecycle',
@@ -24,6 +26,7 @@ const quizDataJson = JSON.stringify({
 		<meta name="generator" content={Astro.generator} />
 	<title>{ecosystemQuestions.topic} - Interactive Learning System</title>
 	<script is:inline set:html={`window.QUIZ_DATA = ${quizDataJson};`}></script>
+	<script is:inline set:html={`topic = "${topic}";`}></script>
 	</head>
 	<body class="min-h-screen bg-white">
 		<div id="quiz-app" class="min-h-screen">
@@ -86,7 +89,7 @@ const quizDataJson = JSON.stringify({
 							<!-- New: Display section title -->
 							<div class="flex items-center gap-4 text-sm">
 								<span class="inline-block px-3 py-1 bg-blue-600 text-white font-semibold rounded">
-									PRACTICE
+									${topic}
 								</span>
 								<span class="font-medium text-gray-500">${question.sectionTitle}</span>
 							</div>
@@ -337,7 +340,7 @@ const quizDataJson = JSON.stringify({
 					correctStreak++; // New: Increment streak
 					
 					// New: Check for streak to gain a life
-					if (correctStreak === 6) {
+					if (correctStreak === 4) {
 						if (lives < 3) {
 							lives++;
 						}
