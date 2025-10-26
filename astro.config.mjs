@@ -6,7 +6,7 @@ import tailwindcss from '@tailwindcss/vite';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://bit-aics-hello-world-25.github.io',
-  base: '/',
+  base: '/interactive-learning-system/',
   vite: {
     plugins: [tailwindcss()]
   }
