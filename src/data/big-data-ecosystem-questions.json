@@ -1,0 +1,1088 @@
+{
+  "topic": "Big Data Ecosystem & its Lifecycle",
+  "sections": [
+    {
+      "section": "Chapter 2: Overview of Data Ecosystem & its Lifecycle",
+      "questions": [
+        {
+          "id": "bde-1",
+          "type": "multiple-choice",
+          "question": "What is the definition of a Data Ecosystem according to the text?",
+          "options": [
+            "A collection of databases used by an organization.",
+            "A group of people who analyze data for business insights.",
+            "A comprehensive suite of integrated tools and technologies for the entire data lifecycle.",
+            "The physical infrastructure where data is stored.",
+            "A software application for creating data visualizations."
+          ],
+          "correct": 2,
+          "points": 10
+        },
+        {
+          "id": "bde-2",
+          "type": "true-false",
+          "question": "The term 'ecosystem' is used because all the components, from data collection to business decisions, are interdependent.",
+          "correct": true,
+          "points": 10
+        },
+        {
+          "id": "bde-3",
+          "type": "multiple-answer",
+          "question": "Which of the following are considered key components of a Data Ecosystem? Select all that apply.",
+          "options": [
+            "Data Sources & Ingestion",
+            "Data Storage & Management",
+            "Human Resources & Payroll",
+            "Data Analysis & Science",
+            "Governance, Security & Orchestration"
+          ],
+          "correct": [0, 1, 3, 4],
+          "points": 20
+        },
+        {
+          "id": "bde-4",
+          "type": "fill-in-bank",
+          "question": "_________ store structured, filtered data that has been processed for a specific purpose and is optimized for fast SQL queries.",
+          "blanks": [
+            {
+              "position": 1,
+              "correct": "Data Warehouses"
+            }
+          ],
+          "bank": [
+            "Data Lakes",
+            "Databases",
+            "Data Warehouses",
+            "Data Servers",
+            "Data Streams"
+          ],
+          "points": 15
+        },
+        {
+          "id": "bde-5",
+          "type": "multiple-choice",
+          "question": "What is the primary difference between the ETL and ELT approaches to data processing?",
+          "options": [
+            "ETL is faster and more flexible than ELT.",
+            "ELT is an older, traditional method.",
+            "ETL transforms data before loading it into a warehouse, while ELT transforms it after loading.",
+            "ETL only works with structured data, while ELT only works with unstructured data.",
+            "There is no significant difference; the terms are interchangeable."
+          ],
+          "correct": 2,
+          "points": 15
+        }
+      ]
+    },
+    {
+      "section": "2.1: Data Sources & Ingestion",
+      "questions": [
+        {
+          "id": "bde-6",
+          "type": "multiple-choice",
+          "question": "According to the text, what is a key characteristic of 'File data sources'?",
+          "options": [
+            "They are labeled by users and stored in the input machine.",
+            "They are not easily shareable.",
+            "They reside within single, shareable files, allowing multiple users to access them.",
+            "They require a specific server location and driver engine to be accessed.",
+            "They are exclusively used for internal data."
+          ],
+          "correct": 2,
+          "points": 15
+        },
+        {
+          "id": "bde-7",
+          "type": "true-false",
+          "question": "Data originating from sources like IoT devices or web scraping tools is known as secondary or processed data.",
+          "correct": false,
+          "points": 10
+        },
+        {
+          "id": "bde-8",
+          "type": "multiple-answer",
+          "question": "Which of the following are classifications of data sources mentioned in the text? Select all that apply.",
+          "options": [
+            "Internal data",
+            "Encrypted data",
+            "External data",
+            "Open data",
+            "Archived data"
+          ],
+          "correct": [0, 2, 3],
+          "points": 20
+        },
+        {
+          "id": "bde-9",
+          "type": "fill-in-bank",
+          "question": "A _________ _________ is a type of software programmed to sift through databases and extract information.",
+          "blanks": [
+            {
+              "position": 1,
+              "correct": "web"
+            },
+            {
+              "position": 2,
+              "correct": "scraping tool"
+            }
+          ],
+          "bank": [
+            "relational",
+            "database",
+            "web",
+            "scraping tool",
+            "data",
+            "protocol"
+          ],
+          "points": 20
+        }
+      ]
+    },
+    {
+      "section": "2.2: Data Ingestion",
+      "questions": [
+        {
+          "id": "bde-10",
+          "type": "true-false",
+          "question": "The text uses the analogy of a 'loading dock' to describe data analysis, where insights are shipped out to business users.",
+          "correct": false,
+          "points": 10
+        },
+        {
+          "id": "bde-11",
+          "type": "multiple-choice",
+          "question": "Why is data ingestion considered a crucial first step in the data pipeline?",
+          "options": [
+            "It is the only step where data is secured.",
+            "It is the most expensive part of the process.",
+            "Without it, there is no data to analyze, forming the foundation for all data-driven decisions.",
+            "It automatically cleans and transforms all incoming data.",
+            "It is where business intelligence reports are generated."
+          ],
+          "correct": 2,
+          "points": 15
+        },
+        {
+          "id": "bde-12",
+          "type": "fill-in-bank",
+          "question": "Prominent solutions like Flume and _________ _________ are pivotal components of the Hadoop ecosystem that facilitate scalable data intake.",
+          "blanks": [
+            {
+              "position": 1,
+              "correct": "Apache"
+            },
+            {
+              "position": 2,
+              "correct": "Kafka"
+            }
+          ],
+          "bank": [
+            "Apache",
+            "Kafka",
+            "Hadoop",
+            "Spark",
+            "MySQL",
+            "Server"
+          ],
+          "points": 20
+        }
+      ]
+    },
+    {
+      "section": "Real-Time Data Ingestion",
+      "questions": [
+        {
+          "id": "bde-13",
+          "type": "multiple-choice",
+          "question": "What is the typical latency for Real-Time Data Ingestion?",
+          "options": [
+            "Minutes to hours",
+            "Hours to days",
+            "Exactly one second",
+            "Milliseconds to seconds",
+            "It has no latency."
+          ],
+          "correct": 3,
+          "points": 10
+        },
+        {
+          "id": "bde-14",
+          "type": "true-false",
+          "question": "A use case for real-time data ingestion in e-commerce is generating monthly sales reports.",
+          "correct": false,
+          "points": 10
+        },
+        {
+          "id": "bde-15",
+          "type": "fill-in-bank",
+          "question": "In real-time ingestion, the data flow is a continuous, _________ stream.",
+          "blanks": [
+            {
+              "position": 1,
+              "correct": "unbounded"
+            }
+          ],
+          "bank": [
+            "bounded",
+            "unbounded",
+            "scheduled",
+            "limited",
+            "discrete"
+          ],
+          "points": 15
+        }
+      ]
+    },
+    {
+      "section": "Batch-Based data ingestion",
+      "questions": [
+        {
+          "id": "bde-16",
+          "type": "multiple-choice",
+          "question": "When is batch-based ingestion most advantageous?",
+          "options": [
+            "When immediate decision-making is required.",
+            "When an organization needs to gather specific data points daily and does not need real-time data.",
+            "When dealing with a continuous, unbounded stream of data.",
+            "When processing individual transactions as they occur.",
+            "When monitoring live patient data in healthcare."
+          ],
+          "correct": 1,
+          "points": 15
+        },
+        {
+          "id": "bde-17",
+          "type": "multiple-answer",
+          "question": "Which of the following are described as Batch Ingestion Patterns by Scheduling Frequency? Select all that apply.",
+          "options": [
+            "Micro-Batch",
+            "Real-Time",
+            "Daily",
+            "Instantaneous",
+            "Hourly"
+          ],
+          "correct": [0, 2, 4],
+          "points": 20
+        },
+        {
+          "id": "bde-18",
+          "type": "true-false",
+          "question": "The Incremental Load (Delta) data extraction method is simple but resource-intensive because the entire dataset is replaced each time.",
+          "correct": false,
+          "points": 10
+        },
+        {
+          "id": "bde-19",
+          "type": "fill-in-bank",
+          "question": "The data extraction method that tracks inserts, updates, and deletes is known as _________ _________ _________.",
+          "blanks": [
+            {
+              "position": 1,
+              "correct": "Change"
+            },
+            {
+              "position": 2,
+              "correct": "Data"
+            },
+            {
+              "position": 3,
+              "correct": "Capture"
+            }
+          ],
+          "bank": [
+            "Full",
+            "Load",
+            "Refresh",
+            "Change",
+            "Data",
+            "Capture"
+          ],
+          "points": 25
+        }
+      ]
+    },
+    {
+      "section": "Micro Batching",
+      "questions": [
+        {
+          "id": "bde-20",
+          "type": "multiple-choice",
+          "question": "Which analogy is used to describe Micro-Batching?",
+          "options": [
+            "A freight train (carries everything at once, daily)",
+            "A conveyor belt (continuous flow, immediate)",
+            "A subway system (frequent departures with small groups)",
+            "A personal car (on-demand, single-use)",
+            "A postal service (delivers mail once a day)"
+          ],
+          "correct": 2,
+          "points": 10
+        },
+        {
+          "id": "bde-21",
+          "type": "true-false",
+          "question": "Micro-batching offers lower latency than traditional batch processing but higher latency than true real-time processing.",
+          "correct": true,
+          "points": 10
+        },
+        {
+          "id": "bde-22",
+          "type": "multiple-choice",
+          "question": "According to the comparison table, which data processing model is best for achieving a balance between freshness and throughput?",
+          "options": [
+            "Batch Processing",
+            "Real-Time Processing",
+            "Micro-Batch Processing",
+            "All models are equal in this regard.",
+            "None of the models can balance freshness and throughput."
+          ],
+          "correct": 2,
+          "points": 15
+        }
+      ]
+    },
+    {
+      "section": "The Complete Process of Data Ingestion",
+      "questions": [
+        {
+          "id": "bde-23",
+          "type": "multiple-answer",
+          "question": "In Step 1: Data Collection, which of the following are listed as sources of data? Select all that apply.",
+          "options": [
+            "Databases",
+            "APIs",
+            "Business Intelligence Dashboards",
+            "Streaming Services",
+            "IoT Devices"
+          ],
+          "correct": [0, 1, 3, 4],
+          "points": 20
+        },
+        {
+          "id": "bde-24",
+          "type": "multiple-choice",
+          "question": "Which task in the Data Transformation step involves adding context by merging with other data sources?",
+          "options": [
+            "Data Cleaning",
+            "Data Normalization",
+            "Data Enrichment",
+            "Data Loading",
+            "Data Collection"
+          ],
+          "correct": 2,
+          "points": 15
+        },
+        {
+          "id": "bde-25",
+          "type": "true-false",
+          "question": "Data Lakes are described as a target system for storing structured data for analysis and reporting, like Amazon Redshift or Snowflake.",
+          "correct": false,
+          "points": 10
+        }
+      ]
+    },
+    {
+      "section": "The Data Ingestion Workflow",
+      "questions": [
+        {
+          "id": "bde-26",
+          "type": "multiple-choice",
+          "question": "Which of the following is the first step in the Data Ingestion Workflow?",
+          "options": [
+            "Data Extraction",
+            "Data Loading",
+            "Data Transformation",
+            "Data Source Identification",
+            "Data Monitoring"
+          ],
+          "correct": 3,
+          "points": 15
+        },
+        {
+          "id": "bde-27",
+          "type": "multiple-answer",
+          "question": "What are the challenges in data ingestion mentioned in the text? Select all that apply.",
+          "options": [
+            "Managing Data Variety",
+            "Lack of available data",
+            "Ensuring Data Accuracy and Quality",
+            "Data Security and Privacy",
+            "Insufficient storage capacity"
+          ],
+          "correct": [0, 2, 3],
+          "points": 20
+        },
+        {
+          "id": "bde-28",
+          "type": "true-false",
+          "question": "The text concludes that data ingestion is a minor step with little impact on an organization's ability to use its data.",
+          "correct": false,
+          "points": 10
+        }
+      ]
+    },
+    {
+      "section": "Data Transformation",
+      "questions": [
+        {
+          "id": "bde-29",
+          "type": "true-false",
+          "question": "The text uses a cooking analogy where raw data is like a final, edible meal and transformed data is like raw ingredients.",
+          "correct": false,
+          "points": 10
+        },
+        {
+          "id": "bde-30",
+          "type": "multiple-answer",
+          "question": "What are the key goals of data transformation? Select all that apply.",
+          "options": [
+            "Improved Quality and Usability",
+            "Enhanced Compatibility and Integration",
+            "Faster Queries",
+            "Making data more complex and harder to read",
+            "Better Analysis and Performance"
+          ],
+          "correct": [0, 1, 2, 4],
+          "points": 20
+        },
+        {
+          "id": "bde-31",
+          "type": "fill-in-bank",
+          "question": "Transformations involving basic tasks like cleansing and filtering are considered _________ data transformations.",
+          "blanks": [
+            {
+              "position": 1,
+              "correct": "Simple"
+            }
+          ],
+          "bank": [
+            "Complex",
+            "Advanced",
+            "Simple",
+            "Automated",
+            "Manual"
+          ],
+          "points": 15
+        }
+      ]
+    },
+    {
+      "section": "Common Types of Data Transformation",
+      "questions": [
+        {
+          "id": "bde-32",
+          "type": "multiple-choice",
+          "question": "Converting various state abbreviations like 'NY', 'New York', and 'N.Y.' into a single, consistent format 'New York' is an example of which transformation type?",
+          "options": [
+            "Format Revision",
+            "Enrichment",
+            "Aggregation",
+            "Standardization",
+            "Pivoting"
+          ],
+          "correct": 3,
+          "points": 15
+        },
+        {
+          "id": "bde-33",
+          "type": "true-false",
+          "question": "A major drawback of the traditional ETL process is that the original raw data is often lost after transformation.",
+          "correct": true,
+          "points": 10
+        },
+        {
+          "id": "bde-34",
+          "type": "multiple-choice",
+          "question": "In the modern ELT process, where does the data transformation take place?",
+          "options": [
+            "On a staging server before loading",
+            "Within the source system before extraction",
+            "Within the data warehouse/lake after the raw data has been loaded",
+            "It does not require a transformation step",
+            "On the user's local machine"
+          ],
+          "correct": 2,
+          "points": 15
+        }
+      ]
+    },
+    {
+      "section": "Difference between ELT and ETL",
+      "questions": [
+        {
+          "id": "bde-35",
+          "type": "multiple-choice",
+          "question": "According to the comparison table, which approach is fully compatible with data lakes?",
+          "options": [
+            "ETL",
+            "ELT",
+            "Both are equally compatible",
+            "Neither is compatible",
+            "Only manual scripting is compatible"
+          ],
+          "correct": 1,
+          "points": 10
+        },
+        {
+          "id": "bde-36",
+          "type": "true-false",
+          "question": "The traditional ETL approach is generally more cost-effective than the modern ELT approach because it leverages cloud resources.",
+          "correct": false,
+          "points": 10
+        },
+        {
+          "id": "bde-37",
+          "type": "multiple-answer",
+          "question": "Which of the following are listed as applications of data transformation? Select all that apply.",
+          "options": [
+            "Business intelligence (BI)",
+            "Hardware manufacturing",
+            "Healthcare record standardization",
+            "Customer Relationship Management (CRM)",
+            "Network infrastructure setup"
+          ],
+          "correct": [0, 2, 3],
+          "points": 20
+        }
+      ]
+    },
+    {
+      "section": "Types of Data Ingestion Tools & Data Loading",
+      "questions": [
+        {
+          "id": "bde-38",
+          "type": "multiple-choice",
+          "question": "Which type of data ingestion tool is described as a fully managed service where you configure sources and destinations via a UI?",
+          "options": [
+            "Open-Source Frameworks",
+            "Code-Centric",
+            "SaaS/Cloud-Native",
+            "Cloud Provider Native",
+            "Manual Scripts"
+          ],
+          "correct": 2,
+          "points": 15
+        },
+        {
+          "id": "bde-39",
+          "type": "true-false",
+          "question": "Loading data into real-time processing systems enables sub-second latency for applications requiring instant insights.",
+          "correct": true,
+          "points": 10
+        },
+        {
+          "id": "bde-40",
+          "type": "multiple-answer",
+          "question": "Which of the following are real-life uses of real-time data processing? Select all that apply.",
+          "options": [
+            "Fraud detection",
+            "Monthly financial reporting",
+            "Streaming analytics",
+            "Supply chain management",
+            "Annual employee performance reviews"
+          ],
+          "correct": [0, 2, 3],
+          "points": 20
+        },
+        {
+          "id": "bde-41",
+          "type": "fill-in-bank",
+          "question": "The technique of utilizing memory (RAM) to store and process data to reduce delay is called _________-_________ _________.",
+          "blanks": [
+            {
+              "position": 1,
+              "correct": "In"
+            },
+            {
+              "position": 2,
+              "correct": "Memory"
+            },
+            {
+              "position": 3,
+              "correct": "Computing"
+            }
+          ],
+          "bank": [
+            "Complex",
+            "Event",
+            "Processing",
+            "In",
+            "Memory",
+            "Computing"
+          ],
+          "points": 25
+        }
+      ]
+    },
+    {
+      "section": "How does Real-Time Data Processing Work?",
+      "questions": [
+        {
+          "id": "bde-42",
+          "type": "multiple-choice",
+          "question": "In the real-time data processing workflow, what happens immediately after 'Data ingestion'?",
+          "options": [
+            "Data Collection",
+            "Stream Processing",
+            "Data Storage",
+            "Real-Time Analysis",
+            "Output and Actions"
+          ],
+          "correct": 1,
+          "points": 15
+        },
+        {
+          "id": "bde-43",
+          "type": "multiple-answer",
+          "question": "What are the advantages of Real-Time Data Processing? Select all that apply.",
+          "options": [
+            "Timely Insights",
+            "Low cost of implementation",
+            "Increased Efficiency",
+            "Simplicity of design",
+            "Enhanced Customer Experience"
+          ],
+          "correct": [0, 2, 4],
+          "points": 20
+        },
+        {
+          "id": "bde-44",
+          "type": "true-false",
+          "question": "One of the disadvantages of real-time processing is its complexity, as designing and managing such systems can be complicated.",
+          "correct": true,
+          "points": 10
+        }
+      ]
+    },
+    {
+      "section": "2.3 The Hadoop Ecosystem",
+      "questions": [
+        {
+          "id": "bde-45",
+          "type": "true-false",
+          "question": "Hadoop is a proprietary, closed-source framework that requires expensive, specialized hardware to run.",
+          "correct": false,
+          "points": 10
+        },
+        {
+          "id": "bde-46",
+          "type": "multiple-answer",
+          "question": "Which of the following are considered core components of Hadoop? Select all that apply.",
+          "options": [
+            "HDFS",
+            "YARN",
+            "Tableau",
+            "MapReduce",
+            "Snowflake"
+          ],
+          "correct": [0, 1, 3],
+          "points": 20
+        },
+        {
+          "id": "bde-47",
+          "type": "fill-in-bank",
+          "question": "All the components of the Hadoop ecosystem revolve around a single core element: _________.",
+          "blanks": [
+            {
+              "position": 1,
+              "correct": "Data"
+            }
+          ],
+          "bank": [
+            "Hardware",
+            "Software",
+            "Data",
+            "Users",
+            "Security"
+          ],
+          "points": 15
+        }
+      ]
+    },
+    {
+      "section": "2.3.2 Hadoop’s Core (HDFS)",
+      "questions": [
+        {
+          "id": "bde-48",
+          "type": "multiple-choice",
+          "question": "What is the primary goal of HDFS?",
+          "options": [
+            "To provide low-latency data access for transactional systems.",
+            "To deliver high throughput for reading and writing large files.",
+            "To efficiently store millions of small files.",
+            "To perform in-memory data processing.",
+            "To manage cluster resources and job scheduling."
+          ],
+          "correct": 1,
+          "points": 15
+        },
+        {
+          "id": "bde-49",
+          "type": "true-false",
+          "question": "The 'Write Once, Read Many' (WORM) philosophy means that data in HDFS is frequently modified and updated after being written.",
+          "correct": false,
+          "points": 10
+        },
+        {
+          "id": "bde-50",
+          "type": "fill-in-bank",
+          "question": "In the HDFS architecture, the _________ is the master daemon that manages the file system namespace and metadata.",
+          "blanks": [
+            {
+              "position": 1,
+              "correct": "NameNode"
+            }
+          ],
+          "bank": [
+            "DataNode",
+            "NameNode",
+            "Secondary NameNode",
+            "ClientNode",
+            "MasterNode"
+          ],
+          "points": 15
+        },
+        {
+          "id": "bde-51",
+          "type": "multiple-choice",
+          "question": "What is the role of the DataNode in HDFS?",
+          "options": [
+            "To manage the file system metadata.",
+            "To schedule jobs across the cluster.",
+            "To store the actual data blocks on local disks.",
+            "To perform periodic checkpoints of the NameNode.",
+            "To negotiate resources for applications."
+          ],
+          "correct": 2,
+          "points": 15
+        }
+      ]
+    },
+    {
+      "section": "Key Design Goals & Characteristics of HDFS",
+      "questions": [
+        {
+          "id": "bde-52",
+          "type": "multiple-answer",
+          "question": "Which of the following are key characteristics of HDFS? Select all that apply.",
+          "options": [
+            "Replication & Fault Tolerance",
+            "Low-latency random access",
+            "Data Blocks",
+            "Efficiency with small files",
+            "Move Computation, Not Data"
+          ],
+          "correct": [0, 2, 4],
+          "points": 20
+        },
+        {
+          "id": "bde-53",
+          "type": "true-false",
+          "question": "HDFS is highly efficient for storing millions of small files because it minimizes metadata overhead on the NameNode.",
+          "correct": false,
+          "points": 10
+        },
+        {
+          "id": "bde-54",
+          "type": "fill-in-bank",
+          "question": "To provide data durability and fault tolerance, each data block in HDFS is replicated across multiple DataNodes, with a default replication factor of _________.",
+          "blanks": [
+            {
+              "position": 1,
+              "correct": "3"
+            }
+          ],
+          "bank": [
+            "1",
+            "2",
+            "3",
+            "5",
+            "10"
+          ],
+          "points": 15
+        },
+        {
+          "id": "bde-55",
+          "type": "multiple-choice",
+          "question": "What is a major weakness of HDFS?",
+          "options": [
+            "It is not fault-tolerant.",
+            "It is very expensive to run.",
+            "It is inefficient with small files, which can overload the NameNode.",
+            "It cannot be scaled horizontally.",
+            "It has poor throughput for large files."
+          ],
+          "correct": 2,
+          "points": 15
+        }
+      ]
+    },
+    {
+      "section": "1.3.4 Map Reduce",
+      "questions": [
+        {
+          "id": "bde-56",
+          "type": "multiple-choice",
+          "question": "What is the primary purpose of the MapReduce programming model?",
+          "options": [
+            "To store data in a distributed file system.",
+            "To provide real-time, low-latency data access.",
+            "To make large-scale data processing feasible and fault-tolerant using a 'Divide and Conquer' approach.",
+            "To manage and schedule cluster resources.",
+            "To provide an SQL-like interface for querying data."
+          ],
+          "correct": 2,
+          "points": 15
+        },
+        {
+          "id": "bde-57",
+          "type": "true-false",
+          "question": "The 'Shuffle & Sort' phase in MapReduce is a manual step that requires developers to write complex code for data grouping.",
+          "correct": false,
+          "points": 10
+        },
+        {
+          "id": "bde-58",
+          "type": "fill-in-bank",
+          "question": "The two main phases of the MapReduce model are the _________ Phase and the _________ Phase.",
+          "blanks": [
+            {
+              "position": 1,
+              "correct": "Map"
+            },
+            {
+              "position": 2,
+              "correct": "Reduce"
+            }
+          ],
+          "bank": [
+            "Sort",
+            "Shuffle",
+            "Map",
+            "Combine",
+            "Reduce",
+            "Filter"
+          ],
+          "points": 20
+        }
+      ]
+    },
+    {
+      "section": "The Complete Data Flow of MapReduce",
+      "questions": [
+        {
+          "id": "bde-59",
+          "type": "multiple-choice",
+          "question": "What is the role of the optional 'Combiner' in the MapReduce data flow?",
+          "options": [
+            "It divides the input file into splits.",
+            "It writes the final output to HDFS.",
+            "It performs local aggregation on the Mapper node to reduce network traffic.",
+            "It sorts the data before it reaches the Reducer.",
+            "It is another name for the Reduce task."
+          ],
+          "correct": 2,
+          "points": 15
+        },
+        {
+          "id": "bde-60",
+          "type": "multiple-answer",
+          "question": "What were the key benefits that made MapReduce revolutionary? Select all that apply.",
+          "options": [
+            "Simplicity for programmers",
+            "Massive Scalability",
+            "Fault Tolerance",
+            "Low-latency processing",
+            "Support for in-memory computation"
+          ],
+          "correct": [0, 1, 2],
+          "points": 20
+        },
+        {
+          "id": "bde-61",
+          "type": "true-false",
+          "question": "MapReduce is a foundational technology for the Big Data era, abstracting away the complexity of distributed computing.",
+          "correct": true,
+          "points": 10
+        }
+      ]
+    },
+    {
+      "section": "2.3.3 YARN (Yet Another Resource Negotiator)",
+      "questions": [
+        {
+          "id": "bde-62",
+          "type": "multiple-choice",
+          "question": "Which component of YARN is the master daemon responsible for resource assignment and management across the entire cluster?",
+          "options": [
+            "NodeManager",
+            "ApplicationMaster",
+            "Container",
+            "ResourceManager",
+            "Scheduler"
+          ],
+          "correct": 3,
+          "points": 15
+        },
+        {
+          "id": "bde-63",
+          "type": "fill-in-bank",
+          "question": "A _________ is the fundamental unit of resource allocation in YARN, representing a logical bundle of resources like CPU and RAM on a single node.",
+          "blanks": [
+            {
+              "position": 1,
+              "correct": "Container"
+            }
+          ],
+          "bank": [
+            "NodeManager",
+            "ApplicationMaster",
+            "Container",
+            "ResourceManager",
+            "Job"
+          ],
+          "points": 15
+        },
+        {
+          "id": "bde-64",
+          "type": "true-false",
+          "question": "The ApplicationMaster is a generic component that manages all types of applications in the same way.",
+          "correct": false,
+          "points": 10
+        }
+      ]
+    },
+    {
+      "section": "YARN workflow & Features",
+      "questions": [
+        {
+          "id": "bde-65",
+          "type": "multiple-choice",
+          "question": "What is the first step in the YARN workflow?",
+          "options": [
+            "The ApplicationMaster registers itself.",
+            "The client submits an application to the ResourceManager.",
+            "The ApplicationMaster notifies NodeManagers to launch containers.",
+            "The ResourceManager allocates a container for the ApplicationMaster.",
+            "Application code is executed in containers."
+          ],
+          "correct": 1,
+          "points": 15
+        },
+        {
+          "id": "bde-66",
+          "type": "multiple-answer",
+          "question": "Which of the following are listed as features of YARN? Select all that apply.",
+          "options": [
+            "Scalability",
+            "Low Latency",
+            "Compatibility",
+            "Multi-tenancy",
+            "Simplicity"
+          ],
+          "correct": [0, 2, 3],
+          "points": 20
+        },
+        {
+          "id": "bde-67",
+          "type": "true-false",
+          "question": "A key advantage of YARN is its simplicity, as it removes all complexity and configuration overhead from the Hadoop ecosystem.",
+          "correct": false,
+          "points": 10
+        }
+      ]
+    },
+    {
+      "section": "Key Components of the Hadoop Ecosystem",
+      "questions": [
+        {
+          "id": "bde-68",
+          "type": "multiple-choice",
+          "question": "Which tool is designed for efficiently transferring bulk data between relational databases and HDFS?",
+          "options": [
+            "Apache Flume",
+            "Apache Kafka",
+            "Apache Sqoop",
+            "Apache Hive",
+            "Apache HBase"
+          ],
+          "correct": 2,
+          "points": 15
+        },
+        {
+          "id": "bde-69",
+          "type": "multiple-answer",
+          "question": "Which of the following tools are categorized under 'Data Warehousing & SQL-on-Hadoop'? Select all that apply.",
+          "options": [
+            "Apache Spark",
+            "Apache Hive",
+            "Apache Impala",
+            "Apache Zookeeper",
+            "PrestoDB / Trino"
+          ],
+          "correct": [1, 2, 4],
+          "points": 20
+        },
+        {
+          "id": "bde-70",
+          "type": "fill-in-bank",
+          "question": "_________ is a centralized service for maintaining configuration information and providing distributed synchronization, keeping the ecosystem coordinated.",
+          "blanks": [
+            {
+              "position": 1,
+              "correct": "Apache Zookeeper"
+            }
+          ],
+          "bank": [
+            "Apache Spark",
+            "Apache Hive",
+            "Apache HBase",
+            "Apache Zookeeper",
+            "Apache Sqoop"
+          ],
+          "points": 20
+        }
+      ]
+    },
+    {
+      "section": "A Simple Analogy & Summary",
+      "questions": [
+        {
+          "id": "bde-71",
+          "type": "multiple-choice",
+          "question": "In the restaurant kitchen analogy, what does HDFS represent?",
+          "options": [
+            "The head chef who assigns tasks.",
+            "The waitstaff who take customer orders.",
+            "The giant, walk-in refrigerator and pantry where ingredients are stored.",
+            "The order ticket rail where new orders are placed.",
+            "A team of fast, efficient cooks."
+          ],
+          "correct": 2,
+          "points": 10
+        },
+        {
+          "id": "bde-72",
+          "type": "true-false",
+          "question": "The Hadoop ecosystem's primary importance is that it transformed Hadoop into a single-purpose batch processing tool.",
+          "correct": false,
+          "points": 10
+        },
+        {
+          "id": "bde-73",
+          "type": "multiple-choice",
+          "question": "In the restaurant kitchen analogy, which component is like the head chef who assigns tasks and resources?",
+          "options": [
+            "HDFS",
+            "MapReduce",
+            "Spark",
+            "YARN",
+            "Hive"
+          ],
+          "correct": 3,
+          "points": 15
+        }
+      ]
+    }
+  ]
+}

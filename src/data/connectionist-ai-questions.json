@@ -1,0 +1,95 @@
+{
+  "topic": "Connectionist AI",
+  "sections": [
+    {
+      "section": "Introduction to Neural Networks",
+      "questions": [
+        {
+          "id": "ai-1",
+          "type": "multiple-choice",
+          "question": "What is the primary advantage of connectionist AI over symbolic AI?",
+          "options": [
+            "It requires less computational power.",
+            "It can learn from data without explicit programming.",
+            "It doesn't need any training data.",
+            "It is faster to implement.",
+            "It uses simpler algorithms."
+          ],
+          "correct": 1,
+          "points": 15
+        },
+        {
+          "id": "ai-2",
+          "type": "true-false",
+          "question": "Neural networks are inspired by the structure of the human brain.",
+          "correct": true,
+          "points": 10
+        },
+        {
+          "id": "ai-3",
+          "type": "fill-in-bank",
+          "question": "The process of adjusting weights in a neural network to minimize error is called _________.",
+          "blanks": [
+            {
+              "position": 1,
+              "correct": "training"
+            }
+          ],
+          "bank": [
+            "training",
+            "learning",
+            "optimization",
+            "adjustment",
+            "processing"
+          ],
+          "points": 20
+        }
+      ]
+    },
+    {
+      "section": "Deep Learning Fundamentals",
+      "questions": [
+        {
+          "id": "ai-4",
+          "type": "multiple-choice",
+          "question": "What is the main difference between a shallow and deep neural network?",
+          "options": [
+            "Deep networks use different activation functions.",
+            "Deep networks have multiple hidden layers.",
+            "Deep networks process data faster.",
+            "Deep networks require less data.",
+            "Deep networks use different optimization algorithms."
+          ],
+          "correct": 1,
+          "points": 15
+        },
+        {
+          "id": "ai-5",
+          "type": "true-false",
+          "question": "Backpropagation is the algorithm used to train neural networks.",
+          "correct": true,
+          "points": 10
+        },
+        {
+          "id": "ai-6",
+          "type": "fill-in-bank",
+          "question": "A _________ network has many layers between input and output layers.",
+          "blanks": [
+            {
+              "position": 1,
+              "correct": "deep"
+            }
+          ],
+          "bank": [
+            "deep",
+            "wide",
+            "simple",
+            "complex",
+            "neural"
+          ],
+          "points": 20
+        }
+      ]
+    }
+  ]
+}

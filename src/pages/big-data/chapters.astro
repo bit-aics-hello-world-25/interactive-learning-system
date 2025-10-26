@@ -1,0 +1,88 @@
+---
+import '../../styles/global.css';
+import bigDataQuestions from '../../data/big-data-questions.json';
+
+// Define chapters for Big Data
+const chapters = [
+	{
+		id: 'intro',
+		title: 'Introduction to Big Data',
+		description: 'Learn the fundamentals of Big Data',
+		icon: '📊',
+		link: '/big-data-quiz'
+	},
+	{
+		id: 'ecosystem',
+		title: 'The Big Data Ecosystem & Lifecycle',
+		description: 'Explore the ecosystem and lifecycle',
+		icon: '🌐',
+		link: '/big-data-ecosystem-quiz'
+	},
+	{
+		id: 'analysis',
+		title: 'Data Analysis & Visualization',
+		description: 'Learn about data analysis techniques',
+		icon: '📈',
+		link: '/big-data/analysis'
+	},
+	{
+		id: 'applications',
+		title: 'Application & Use Cases',
+		description: 'Real-world applications of Big Data',
+		icon: '💼',
+		link: '/big-data/applications'
+	},
+	{
+		id: 'challenges',
+		title: 'Challenges, Ethics, and Governance',
+		description: 'Understanding challenges and ethics',
+		icon: '⚖️',
+		link: '/big-data/challenges'
+	}
+];
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{bigDataQuestions.topic} - Chapters</title>
+	</head>
+	<body class="bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 min-h-screen">
+		<div class="container mx-auto px-4 py-16">
+			<a href="/" class="inline-flex items-center text-gray-600 hover:text-gray-900 mb-8">
+				<svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+				</svg>
+				Back to Home
+			</a>
+
+			<div class="text-center mb-12">
+				<h1 class="text-5xl font-bold text-gray-800 mb-4">{bigDataQuestions.topic}</h1>
+				<p class="text-xl text-gray-600">Select a chapter to begin your learning journey</p>
+			</div>
+
+			<div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+				{chapters.map((chapter) => (
+					<a href={chapter.link} class="group block">
+						<div class="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 hover:-translate-y-1 border-2 border-gray-100 hover:border-blue-500">
+							<div class="flex items-start gap-4">
+								<div class="text-4xl">{chapter.icon}</div>
+								<div class="flex-1">
+									<h3 class="text-xl font-bold text-gray-800 mb-2 group-hover:text-blue-600 transition-colors">{chapter.title}</h3>
+									<p class="text-gray-600 text-sm">{chapter.description}</p>
+								</div>
+								<svg class="w-6 h-6 text-gray-400 group-hover:text-blue-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+								</svg>
+							</div>
+						</div>
+					</a>
+				))}
+			</div>
+		</div>
+	</body>
+</html>
+

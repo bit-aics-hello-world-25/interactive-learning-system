@@ -1,5 +1,5 @@
 ---
-
+import '../styles/global.css';
 ---
 
 <html lang="en">
@@ -8,9 +8,44 @@
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+		<title>Interactive Learning System</title>
 	</head>
-	<body>
-		<h1>Astro</h1>
+	<body class="bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 min-h-screen">
+		<div class="container mx-auto px-4 py-16">
+			<div class="text-center mb-12">
+				<h1 class="text-5xl font-bold text-gray-800 mb-4">Interactive Learning System</h1>
+				<p class="text-xl text-gray-600">Select a topic to begin your learning journey</p>
+			</div>
+
+			<div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+				<a href="/big-data/chapters" class="group">
+					<div class="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 hover:-translate-y-2">
+						<div class="flex items-center justify-center w-20 h-20 bg-gradient-to-br from-blue-500 to-blue-700 rounded-xl mb-6 mx-auto group-hover:scale-110 transition-transform duration-300">
+							<svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+							</svg>
+						</div>
+						<h2 class="text-3xl font-bold text-gray-800 text-center mb-4 group-hover:text-blue-600 transition-colors">Big Data</h2>
+						<p class="text-gray-600 text-center">Learn about data processing, analysis, and the fundamentals of big data systems.</p>
+					</div>
+				</a>
+
+				<a href="/connectionist-ai/chapters" class="group">
+					<div class="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 hover:-translate-y-2">
+						<div class="flex items-center justify-center w-20 h-20 bg-gradient-to-br from-purple-500 to-purple-700 rounded-xl mb-6 mx-auto group-hover:scale-110 transition-transform duration-300">
+							<svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+							</svg>
+						</div>
+						<h2 class="text-3xl font-bold text-gray-800 text-center mb-4 group-hover:text-purple-600 transition-colors">Connectionist AI</h2>
+						<p class="text-gray-600 text-center">Explore neural networks, deep learning, and connectionist approaches to artificial intelligence.</p>
+					</div>
+				</a>
+			</div>
+
+			<div class="mt-16 text-center">
+				<p class="text-gray-500">Click on a topic to start learning</p>
+			</div>
+		</div>
 	</body>
 </html>

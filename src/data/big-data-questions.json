@@ -1,0 +1,114 @@
+{
+  "topic": "Big Data",
+  "sections": [
+    {
+      "section": "1.1: What is data?",
+      "questions": [
+        {
+          "id": "bd-1",
+          "type": "true-false",
+          "question": "According to the text, only information you actively type and submit, like a comment, is considered data.",
+          "correct": false,
+          "points": 10
+        },
+        {
+          "id": "bd-2",
+          "type": "multiple-choice",
+          "question": "What is the primary reason traditional data processing software struggles with 'Big Data'?",
+          "options": [
+            "It was no longer a compatible version.",
+            "It is too expensive to run.",
+            "It cannot process data from social media.",
+            "The amount of data is too immense to be analyzed practically.",
+            "It was not designed to be used by modern companies."
+          ],
+          "correct": 3,
+          "points": 15
+        },
+        {
+          "id": "bd-3",
+          "type": "fill-in-bank",
+          "question": "Modern _________ help us interpret and extract valuable insights and patterns from the ocean of data.",
+          "blanks": [
+            {
+              "position": 1,
+              "correct": "algorithms"
+            }
+          ],
+          "bank": [
+            "algorithms",
+            "computers",
+            "databases",
+            "programs",
+            "servers"
+          ],
+          "points": 20
+        },
+        {
+          "id": "bd-3b",
+          "type": "multiple-answer",
+          "question": "Which of the following are considered sources of Machine-Generated Data? Select all that apply.",
+          "options": [
+            "A comment on a social media post",
+            "A smartwatch tracking your heart rate",
+            "Location data from a delivery truck",
+            "The items you bought in an online store",
+            "Sensor data from IoT devices"
+          ],
+          "correct": [1, 2, 4],
+          "points": 20
+        }
+      ]
+    },
+    {
+      "section": "1.2: A little history lesson on Big Data",
+      "questions": [
+        {
+          "id": "bd-4",
+          "type": "multiple-choice",
+          "question": "The concept of 'Big Data' was born from a problem faced by massive indexing services like Google & Yahoo. What was that problem?",
+          "options": [
+            "They did not have enough powerful servers.",
+            "They needed to index and organize the entire World Wide Web.",
+            "They couldn't hire enough data analysts.",
+            "Their users were not generating enough data.",
+            "They did not know how to get data."
+          ],
+          "correct": 1,
+          "points": 15
+        },
+        {
+          "id": "bd-5",
+          "type": "fill-in-bank",
+          "question": "The method of distributing a workload across many cheaper servers is known as _________ _________.",
+          "blanks": [
+            {
+              "position": 1,
+              "correct": "horizontal"
+            },
+            {
+              "position": 2,
+              "correct": "scaling"
+            }
+          ],
+          "bank": [
+            "horizontal",
+            "scaling",
+            "vertical",
+            "distribution",
+            "cloud",
+            "processing"
+          ],
+          "points": 25
+        },
+        {
+          "id": "bd-6",
+          "type": "true-false",
+          "question": "Traditional relational databases were well-suited for the messy and unstructured data of the web because of their rigid structure.",
+          "correct": false,
+          "points": 10
+        }
+      ]
+    }
+  ]
+}
