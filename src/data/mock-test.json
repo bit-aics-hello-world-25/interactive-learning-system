@@ -1,0 +1,264 @@
+{
+  "topic": "Big Data & AI Exam",
+  "sections": [
+    {
+      "section": "Part I - Section A: True/False",
+      "instructions": "Indicate whether the statement is True or False based on the course readings.",
+      "questions": [
+        {
+          "id": "1",
+          "type": "true-false",
+          "question": "In the context of Big Data, 'Variety' refers specifically to the speed at which data is generated and processed.",
+          "correct": false,
+          "feedback": "'Variety' refers to the different forms data can take (structured, unstructured, semi-structured). The speed of data generation is referred to as 'Velocity'.",
+          "points": 10
+        },
+        {
+          "id": "2",
+          "type": "true-false",
+          "question": "In the Hadoop Distributed File System (HDFS), the NameNode stores the actual data blocks, while the DataNodes manage the metadata.",
+          "correct": false,
+          "feedback": "It is the opposite. The NameNode is the 'Master' that manages metadata (directory tree, file names), while the DataNodes are the 'Slaves' that store the actual data blocks.",
+          "points": 10
+        },
+        {
+          "id": "3",
+          "type": "true-false",
+          "question": "The modern ELT (Extract, Load, Transform) process allows raw data to be loaded directly into a data warehouse before transformation, unlike the traditional ETL process.",
+          "correct": true,
+          "feedback": "ELT loads data first and transforms it later using the warehouse's power, whereas traditional ETL transforms data on a secondary server before loading it.",
+          "points": 10
+        },
+        {
+          "id": "4",
+          "type": "true-false",
+          "question": "Prescriptive Analytics is considered the most advanced stage of analysis because it suggests specific actions to take based on simulations.",
+          "correct": true,
+          "feedback": "Prescriptive analytics answers 'What should we do?' and suggests the best path forward, making it more advanced than descriptive, diagnostic, or predictive analysis.",
+          "points": 10
+        },
+        {
+          "id": "5",
+          "type": "true-false",
+          "question": "Symbolic AI is better suited for handling messy, unstructured data like images and speech than Connectionist AI.",
+          "correct": false,
+          "feedback": "Symbolic AI relies on rigid rules and logic, making it brittle with messy data. Connectionist AI excels at pattern recognition in unstructured data like images and speech.",
+          "points": 10
+        },
+        {
+          "id": "6",
+          "type": "true-false",
+          "question": "In a neural network, the 'Hidden Layers' are where the network detects features, ranging from simple edges to complex shapes.",
+          "correct": true,
+          "feedback": "The hidden layers are where the 'thinking' happens. Early layers detect simple features, and deeper layers combine them into complex features.",
+          "points": 10
+        },
+        {
+          "id": "7",
+          "type": "true-false",
+          "question": "During the training of a neural network, the 'Forward Pass' is the step where the error is calculated and sent backward to adjust weights.",
+          "correct": false,
+          "feedback": "The 'Forward Pass' is where the prediction is made. Sending the error backward to adjust weights is called 'Backpropagation'.",
+          "points": 10
+        },
+        {
+          "id": "8",
+          "type": "true-false",
+          "question": "Overfitting occurs when a model becomes too complex and memorizes the noise in the training data rather than learning the general patterns.",
+          "correct": true,
+          "feedback": "Overfitting is compared to a student memorizing a textbook but failing to answer new questions. It performs well on training data but poorly on test data.",
+          "points": 10
+        },
+        {
+          "id": "9",
+          "type": "true-false",
+          "question": "Convolutional Neural Networks (CNNs) are the preferred architecture for processing sequential data like language translation and time-series forecasting.",
+          "correct": false,
+          "feedback": "CNNs are designed for grid-like data (images). Recurrent Neural Networks (RNNs) or Transformers are preferred for sequential data.",
+          "points": 10
+        },
+        {
+          "id": "10",
+          "type": "true-false",
+          "question": "The General Data Protection Regulation (GDPR) applies to any organization that processes the data of EU residents, regardless of where the organization is located.",
+          "correct": true,
+          "feedback": "GDPR has extraterritorial scope. It imposes obligations on organizations anywhere in the world if they target or collect data related to people in the EU.",
+          "points": 10
+        }
+      ]
+    },
+    {
+      "section": "Part I - Section B: Multiple Choice",
+      "instructions": "Select the best answer from the four options provided.",
+      "questions": [
+        {
+          "id": "11",
+          "type": "multiple-choice",
+          "question": "Why did traditional relational databases (SQL) struggle with the emergence of the World Wide Web, leading to the creation of Big Data technologies?",
+          "options": [
+            "They could not secure the data properly against hackers.",
+            "They required a rigid structure (rows and columns) that couldn't handle unstructured web data.",
+            "They were too expensive for companies like Google to purchase.",
+            "They could only run on a single, small computer."
+          ],
+          "correct": 1,
+          "feedback": "The text states that traditional databases required a rigid structure which was unsuitable for the messy, unstructured data of the web (images, logs, user posts).",
+          "points": 15
+        },
+        {
+          "id": "12",
+          "type": "multiple-choice",
+          "question": "A credit card company needs to stop fraudulent transactions the exact moment they happen. Which data ingestion method is most appropriate?",
+          "options": [
+            "Batch Processing",
+            "Micro-Batch Processing",
+            "Real-Time Processing",
+            "Incremental Load"
+          ],
+          "correct": 2,
+          "feedback": "Real-time processing enables sub-second latency for immediate decision-making, which is required to stop fraud *before* it completes. Batch processing would be too slow.",
+          "points": 15
+        },
+        {
+          "id": "13",
+          "type": "multiple-choice",
+          "question": "In the Hadoop ecosystem, what is the primary function of YARN (Yet Another Resource Negotiator)?",
+          "options": [
+            "To store massive files across distributed nodes.",
+            "To perform SQL queries on the data.",
+            "To manage cluster resources and schedule applications.",
+            "To ingest streaming data from social media."
+          ],
+          "correct": 2,
+          "feedback": "YARN is the resource management layer. The text compares it to an 'Air Traffic Control Tower' or a 'Head Chef' that assigns resources to different jobs.",
+          "points": 15
+        },
+        {
+          "id": "14",
+          "type": "multiple-choice",
+          "question": "Which type of data analysis focuses on finding the root cause of an event by asking 'Why did it happen?'",
+          "options": [
+            "Descriptive Analysis",
+            "Diagnostic Analysis",
+            "Predictive Analysis",
+            "Prescriptive Analysis"
+          ],
+          "correct": 1,
+          "feedback": "Diagnostic analysis digs deeper into data to find root causes and isolate confounding factors. Descriptive asks 'What happened,' and Predictive asks 'What will happen.'",
+          "points": 15
+        },
+        {
+          "id": "15",
+          "type": "multiple-choice",
+          "question": "Which activation function is defined by the formula f(x) = max(0, x) and is known for being computationally fast?",
+          "options": [
+            "Sigmoid",
+            "Tanh",
+            "ReLU (Rectified Linear Unit)",
+            "Step Function"
+          ],
+          "correct": 2,
+          "feedback": "The study guide identifies ReLU as the function that outputs 0 for negative inputs and the input itself for positive inputs, noting it is fast and common in deep networks.",
+          "points": 15
+        },
+        {
+          "id": "16",
+          "type": "multiple-choice",
+          "question": "During neural network training, what is the likely consequence of setting the 'Learning Rate' too high?",
+          "options": [
+            "The training will be too slow and take too long to finish.",
+            "The network will memorize the data perfectly.",
+            "The optimizer might overshoot the optimal values and fail to learn.",
+            "The loss function will become zero immediately."
+          ],
+          "correct": 2,
+          "feedback": "The text states that a learning rate that is too high causes the network to take steps that are too big, potentially overshooting the optimal weights and preventing convergence.",
+          "points": 15
+        },
+        {
+          "id": "17",
+          "type": "multiple-choice",
+          "question": "Which technique is used to prevent 'Overfitting' by randomly disabling neurons during the training process?",
+          "options": [
+            "Data Augmentation",
+            "Dropout",
+            "Early Stopping",
+            "Hyperparameter Optimization"
+          ],
+          "correct": 1,
+          "feedback": "Dropout is explicitly defined as a regularization technique that randomly 'turns off' neurons to force the network to rely on multiple pathways, preventing it from memorizing specific paths.",
+          "points": 15
+        },
+        {
+          "id": "18",
+          "type": "multiple-choice",
+          "question": "What is the core mechanism that allows Transformer networks (like GPT) to process entire sequences in parallel?",
+          "options": [
+            "Convolutional Filters",
+            "Feedback Loops",
+            "Self-Attention",
+            "Data Sharding"
+          ],
+          "correct": 2,
+          "feedback": "Transformers use 'self-attention' to weigh the importance of different words in a sequence simultaneously, unlike RNNs which process word-by-word.",
+          "points": 15
+        },
+        {
+          "id": "19",
+          "type": "multiple-choice",
+          "question": "An 'Adversarial Example' in AI refers to:",
+          "options": [
+            "A hacker stealing the training data.",
+            "An input with tiny, invisible changes designed to trick the AI into making a mistake.",
+            "A model that competes against another model to win a game.",
+            "A situation where the AI forgets previously learned information."
+          ],
+          "correct": 1,
+          "feedback": "The text describes adversarial vulnerability as changing a few pixels (invisible to humans) to make an AI classify a 'panda' as a 'banana.'",
+          "points": 15
+        },
+        {
+          "id": "20",
+          "type": "multiple-choice",
+          "question": "According to the 'Black Box' problem, why is it difficult to use deep neural networks in high-stakes fields like law or healthcare?",
+          "options": [
+            "They are not accurate enough to be useful.",
+            "They require too much electricity to run in a hospital.",
+            "Their internal reasoning is hidden, making it hard to explain *why* a decision was made.",
+            "They cannot process medical images or legal text."
+          ],
+          "correct": 2,
+          "feedback": "The 'Black Box' problem refers to the lack of interpretability. While the model works, we cannot easily trace the millions of connections to explain the decision, which is risky for critical sectors.",
+          "points": 15
+        }
+      ]
+    },
+    {
+      "section": "Part II: Open-Ended Essay Questions",
+      "instructions": "Answer the following three questions. Your responses should be well-structured, use specific terminology from the study guide, and demonstrate a deep understanding of the concepts.",
+      "questions": [
+        {
+          "id": "Essay-1",
+          "type": "essay",
+          "question": "Scenario Analysis: The Logistics Upgrade. A nationwide delivery company currently uses Excel spreadsheets to track their trucks at the end of every week. They want to modernize to optimize routes, save fuel, and predict delivery times. Based on the Big Data Ecosystem, propose a solution for them.\nIn your response, you must:\n1. Identify the specific 'V' (Velocity) change they need to make.\n2. Recommend a specific Data Ingestion type (Batch, Real-time, or Micro-batch) and explain why it fits this scenario better than their current method.\n3. Explain how Predictive Analytics would specifically help their business goals (fuel/time).",
+          "rubric": "1. Velocity: Must identify the shift from weekly (slow) to real-time or near real-time data generation/processing.\n2. Ingestion: Must recommend Real-time (or potentially Micro-batch) ingestion. Justification should mention the need for immediate route optimization.\n3. Predictive Analytics: Must explain that this analyzes historical + real-time data to forecast future outcomes (e.g., predicting traffic patterns to route drivers efficiently, thus saving fuel).",
+          "points": 30
+        },
+        {
+          "id": "Essay-2",
+          "type": "essay",
+          "question": "Conceptual Explanation: The Learning Loop. Explain the process of Training a Neural Network to a complete beginner using the 'Child and Flashcards' analogy provided in the text.\nYour explanation must technically map the analogy to the actual AI concepts. You must include and define the following four terms in your explanation:\n1. Forward Pass\n2. Loss Function\n3. Backpropagation\n4. Weights/Optimizer.",
+          "rubric": "1. Forward Pass: Analogy of the child guessing the animal. Technical definition: Data flowing input -> output to make a prediction.\n2. Loss Function: Analogy of the parent saying 'Wrong, it's a cat.' Technical definition: Measuring the distance between prediction and true label.\n3. Backpropagation: Analogy of the child realizing *why* they were wrong (too much focus on fur, not ears). Technical definition: Calculating gradients/blame backward through the network.\n4. Weights/Optimizer: Analogy of the child adjusting their mental model for next time.\nTechnical definition: The optimizer updating the weights (knobs) to minimize error.",
+          "points": 30
+        },
+        {
+          "id": "Essay-3",
+          "type": "essay",
+          "question": "Critical Evaluation: The Ethics of 'Black Boxes'. The study guide discusses the 'Black Box' problem and 'Bias' in Connectionist AI. Imagine a bank uses a neural network to approve or deny mortgage loans.\n1. Explain why the 'Black Box' nature of the AI poses an ethical risk in this specific scenario.\n2. Explain how Bias could creep into this system (specifically regarding 'Selection Bias' or historical prejudices).\n3. Suggest one technical mitigation strategy mentioned in the text (e.g., LIME, SHAP, or Bias Audits) to address these issues.",
+          "rubric": "1. Black Box Risk: Must explain that if a loan is denied, the bank cannot explain *why* to the customer because the neural net's reasoning is hidden. This lacks transparency/accountability.\n2. Bias Source: Must explain that if historical data contains prejudice (e.g., past discrimination against certain demographics), the AI will learn and repeat those biases (Selection Bias/Historical Prejudice).\n3. Mitigation: Must correctly identify a solution like LIME/SHAP (to visualize which features drove the decision) or Bias Audits (testing across different groups) to ensure fairness.",
+          "points": 30
+        }
+      ]
+    }
+  ]
+}

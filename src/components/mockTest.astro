@@ -1,0 +1,584 @@
+---
+// src/components/mockTest.astro
+import "../styles/global.css";
+
+export interface Props {
+    topic: string;
+    questions: any[];
+    nextSectionUrl: string;
+}
+
+const { topic, questions, nextSectionUrl } = Astro.props;
+
+// Serialize data for client-side
+const quizDataJson = JSON.stringify({
+    topic,
+    questions,
+});
+---
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width" />
+        <title>{topic} - Exam Module</title>
+        <!-- Pass data to window -->
+        <script is:inline set:html={`window.QUIZ_DATA = ${quizDataJson};`} />
+        <script
+            is:inline
+            set:html={`var nextSectionUrl = "${nextSectionUrl}";`}
+        />
+    </head>
+    <body class="bg-gray-50 min-h-screen font-sans text-gray-900">
+        <div id="exam-app" class="min-h-screen flex flex-col">
+            <!-- App rendered here -->
+        </div>
+
+        <script>
+            // --- Configuration ---
+            const PART_1_LIMIT_MS = 45 * 60 * 1000; // 45 Minutes for Part I availability
+            const TOTAL_LIMIT_MS = 90 * 60 * 1000; // 90 Minutes total exam time
+
+            const quizData = window.QUIZ_DATA;
+            const app = document.getElementById("exam-app");
+
+            // --- State ---
+            let currentIndex = 0;
+            let answers = {}; // { questionId: answerValue }
+            let startTime = null; // Will be set when exam starts
+            let examStarted = false;
+            let part1Submitted = false;
+            let examSubmitted = false;
+            let debugMode = false;
+
+            const questions = quizData.questions;
+
+            // Helper: Identify Part I vs Part II based on question type
+            const isPart1 = (q) =>
+                ["true-false", "multiple-choice"].includes(q.type);
+            const isPart2 = (q) => ["essay"].includes(q.type);
+
+            // --- Main Render Function ---
+            // Only called on navigation or major state changes (not on timer tick)
+            function renderApp() {
+                if (!examStarted) {
+                    renderStartScreen();
+                    return;
+                }
+
+                if (examSubmitted) {
+                    renderReview();
+                    return;
+                }
+
+                const question = questions[currentIndex];
+                const isLocked = isPart1(question) && part1Submitted;
+
+                // Calculate initial time strings
+                const now = Date.now();
+                const timeElapsed = now - startTime;
+
+                app.innerHTML = `
+					<!-- Header / Timer Bar -->
+					<header class="bg-white border-b border-gray-200 sticky top-0 z-10 shadow-sm">
+                        <div class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
+                            <div>
+                                <h1 class="font-bold text-lg text-gray-800">${quizData.topic}</h1>
+                                <div class="text-xs text-gray-500">Question ${currentIndex + 1} of ${questions.length}</div>
+                            </div>
+                            
+                            <div class="flex items-center gap-6">
+                                <!-- Timer Display (Updated via DOM ID, not re-render) -->
+                                <div class="text-right" id="timer-container">
+                                    <div id="total-timer" class="text-sm font-mono font-bold text-gray-700">
+                                        Total Time: --:--
+                                    </div>
+                                    ${
+                                        !part1Submitted
+                                            ? `
+                                        <div id="part1-timer" class="text-xs font-mono text-gray-500">
+                                            Part I closes in: --:--
+                                        </div>
+                                    `
+                                            : `<div class="text-xs text-gray-400">Part I Submitted</div>`
+                                    }
+                                </div>
+
+                                <!-- Debug Switch -->
+                                <div class="flex items-center gap-2 bg-gray-100 px-2 py-1 rounded border border-gray-300">
+                                    <label class="text-xs font-bold cursor-pointer select-none">
+                                        <input type="checkbox" id="debug-toggle" ${debugMode ? "checked" : ""} onchange="toggleDebug()">
+                                        DEBUG
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Progress Bar -->
+						<div class="w-full bg-gray-200 h-1.5">
+                            <div class="bg-blue-600 h-1.5 transition-all duration-300" style="width: ${((currentIndex + 1) / questions.length) * 100}%"></div>
+						</div>
+					</header>
+
+					<!-- Main Question Area -->
+					<main class="flex-1 max-w-4xl mx-auto w-full px-6 py-8">
+                        ${
+                            isLocked
+                                ? `
+                            <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-6">
+                                <p class="text-sm text-yellow-700">
+                                    <strong>Part I is locked.</strong> You have submitted this section or time has expired. You cannot change answers here.
+                                </p>
+                            </div>
+                        `
+                                : ""
+                        }
+
+						<div class="bg-white rounded-xl shadow-sm border border-gray-200 p-8">
+							<div class="mb-6">
+								<span class="inline-block px-3 py-1 bg-gray-100 text-gray-600 text-xs font-bold uppercase tracking-wider rounded mb-2">
+									${question.sectionTitle}
+								</span>
+                                <div class="flex justify-between items-start gap-4">
+                                    <!-- Improved Typography for Question -->
+    								<h2 class="text-lg font-semibold text-gray-900 leading-relaxed whitespace-pre-line">${question.question}</h2>
+                                    <span class="whitespace-nowrap text-sm font-medium text-gray-500 bg-gray-50 px-2 py-1 rounded border">${question.points} pts</span>
+                                </div>
+                                ${question.instructions ? `<p class="mt-3 text-gray-500 italic text-sm border-l-2 border-gray-300 pl-3">${question.instructions}</p>` : ""}
+							</div>
+							
+							${renderQuestionInput(question, isLocked)}
+						</div>
+					</main>
+					
+					<!-- Footer Controls -->
+					<footer class="bg-white border-t border-gray-200 p-4 sticky bottom-0 z-10">
+						<div class="max-w-4xl mx-auto flex items-center justify-between">
+                            <button onclick="nav(-1)" class="px-6 py-2 rounded-lg border border-gray-300 text-gray-700 hover:bg-gray-50 disabled:opacity-50" ${currentIndex === 0 ? "disabled" : ""}>
+                                Previous
+                            </button>
+
+                            <div class="flex gap-3">
+                                ${
+                                    debugMode
+                                        ? `
+                                    <button onclick="debugAnswer(true)" class="px-3 py-2 bg-green-100 text-green-800 text-xs font-bold rounded border border-green-300 hover:bg-green-200">
+                                        [DBG] Correct & Next
+                                    </button>
+                                    <button onclick="debugAnswer(false)" class="px-3 py-2 bg-red-100 text-red-800 text-xs font-bold rounded border border-red-300 hover:bg-red-200">
+                                        [DBG] Wrong & Next
+                                    </button>
+                                `
+                                        : ""
+                                }
+                            </div>
+
+                            <div class="flex gap-3">
+                                ${
+                                    !part1Submitted && isPart1(question)
+                                        ? `
+                                    <button onclick="submitPart1()" class="px-6 py-2 bg-orange-600 text-white font-semibold rounded-lg hover:bg-orange-700 transition-colors">
+                                        Submit Part I
+                                    </button>
+                                `
+                                        : ""
+                                }
+                                
+                                ${
+                                    currentIndex < questions.length - 1
+                                        ? `
+                                    <button onclick="nav(1)" class="px-6 py-2 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors">
+                                        Next Question
+                                    </button>
+                                `
+                                        : `
+                                    <button onclick="finishExam()" class="px-8 py-2 bg-green-700 text-white font-bold rounded-lg hover:bg-green-800 transition-colors shadow-md">
+                                        Submit Exam
+                                    </button>
+                                `
+                                }
+                            </div>
+						</div>
+					</footer>
+				`;
+
+                // Immediately update timer once after render
+                updateTimerUI();
+            }
+
+            // --- Start Screen ---
+            function renderStartScreen() {
+                app.innerHTML = `
+                    <div class="min-h-screen flex items-center justify-center p-4">
+                        <div class="max-w-2xl w-full bg-white rounded-2xl shadow-lg border border-gray-200 overflow-hidden">
+                            <div class="bg-blue-600 p-8 text-white text-center">
+                                <h1 class="text-3xl font-bold mb-2">${quizData.topic}</h1>
+                                <p class="text-blue-100">Final Examination</p>
+                            </div>
+                            
+                            <div class="p-8 space-y-8">
+                                <div class="grid grid-cols-2 gap-6">
+                                    <div class="bg-gray-50 p-4 rounded-xl border border-gray-100 text-center">
+                                        <div class="text-gray-500 text-xs font-bold uppercase tracking-wider mb-1">Total Time</div>
+                                        <div class="text-2xl font-bold text-gray-900">90 Minutes</div>
+                                    </div>
+                                    <div class="bg-orange-50 p-4 rounded-xl border border-orange-100 text-center">
+                                        <div class="text-orange-600 text-xs font-bold uppercase tracking-wider mb-1">Part I Limit</div>
+                                        <div class="text-2xl font-bold text-orange-900">45 Minutes</div>
+                                    </div>
+                                </div>
+
+                                <div class="space-y-4">
+                                    <h3 class="font-bold text-gray-900 text-lg">Instructions</h3>
+                                    <ul class="space-y-3 text-gray-600 text-sm leading-relaxed">
+                                        <li class="flex gap-3">
+                                            <span class="flex-shrink-0 w-6 h-6 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-bold text-xs">1</span>
+                                            <span>This exam consists of two parts: <strong>Objective Questions</strong> (Part I) and <strong>Essay Questions</strong> (Part II).</span>
+                                        </li>
+                                        <li class="flex gap-3">
+                                            <span class="flex-shrink-0 w-6 h-6 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-bold text-xs">2</span>
+                                            <span><strong>Part I must be submitted within the first 45 minutes.</strong> After this time, Part I will be locked and you cannot change your answers.</span>
+                                        </li>
+                                        <li class="flex gap-3">
+                                            <span class="flex-shrink-0 w-6 h-6 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-bold text-xs">3</span>
+                                            <span>You can navigate freely between questions within the active sections.</span>
+                                        </li>
+                                        <li class="flex gap-3">
+                                            <span class="flex-shrink-0 w-6 h-6 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-bold text-xs">4</span>
+                                            <span>Ensure you have a stable internet connection. Do not refresh the page during the exam.</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="pt-4">
+                                    <button onclick="startExam()" class="w-full py-4 bg-blue-600 hover:bg-blue-700 text-white font-bold text-lg rounded-xl shadow-lg shadow-blue-200 transition-all transform hover:scale-[1.02] active:scale-[0.98]">
+                                        Start Exam Now
+                                    </button>
+                                    <p class="text-center text-xs text-gray-400 mt-4">Timer will start immediately after clicking.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+
+            // --- Input Rendering ---
+            function renderQuestionInput(question, isLocked) {
+                const currentVal = answers[question.id];
+                const disabledAttr = isLocked ? "disabled" : "";
+                const cursorClass = isLocked
+                    ? "cursor-not-allowed opacity-60"
+                    : "cursor-pointer hover:border-blue-500 hover:bg-blue-50";
+
+                if (question.type === "multiple-choice") {
+                    return `
+						<div class="space-y-3">
+							${question.options
+                                .map(
+                                    (opt, idx) => `
+								<label class="flex items-center p-4 border-2 rounded-lg transition-all ${currentVal === idx ? "border-blue-600 bg-blue-50" : "border-gray-200"} ${cursorClass}">
+                                    <input type="radio" name="q-${question.id}" value="${idx}" 
+                                        ${currentVal === idx ? "checked" : ""} 
+                                        ${disabledAttr}
+                                        onchange="saveObjectiveAnswer('${question.id}', ${idx})"
+                                        class="w-5 h-5 text-blue-600 focus:ring-blue-500 border-gray-300 mr-4">
+									<span class="text-gray-800">${opt}</span>
+								</label>
+							`,
+                                )
+                                .join("")}
+						</div>
+					`;
+                } else if (question.type === "true-false") {
+                    return `
+						<div class="grid grid-cols-2 gap-4">
+                            ${[true, false]
+                                .map(
+                                    (val) => `
+                                <button onclick="${!isLocked ? `saveObjectiveAnswer('${question.id}', ${val})` : ""}" 
+                                    class="p-6 border-2 rounded-lg text-xl font-semibold transition-all text-center
+                                    ${currentVal === val ? "border-blue-600 bg-blue-50 text-blue-800" : "border-gray-200 text-gray-600"}
+                                    ${cursorClass}">
+                                    ${val ? "True" : "False"}
+                                </button>
+                            `,
+                                )
+                                .join("")}
+						</div>
+					`;
+                } else if (question.type === "essay") {
+                    const wordCount = (currentVal || "")
+                        .split(/\s+/)
+                        .filter((w) => w.length > 0).length;
+                    return `
+                        <div class="space-y-2">
+                            <textarea 
+                                id="essay-input-${question.id}"
+                                class="w-full h-80 p-4 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 resize-none font-mono text-sm leading-relaxed"
+                                placeholder="Type your answer here..."
+                                oninput="handleEssayInput('${question.id}', this)"
+                                ${disabledAttr}
+                            >${currentVal || ""}</textarea>
+                            <div class="flex justify-end text-sm text-gray-500">
+                                <span id="word-count-${question.id}">Words: ${wordCount}</span>
+                            </div>
+                        </div>
+                    `;
+                }
+            }
+
+            // --- Timer Logic (Updates DOM directly without re-render) ---
+            function updateTimerUI() {
+                if (!examStarted || examSubmitted) return;
+
+                const now = Date.now();
+                const timeElapsed = now - startTime;
+                const part1Expired = timeElapsed > PART_1_LIMIT_MS;
+                const examExpired = timeElapsed > TOTAL_LIMIT_MS;
+
+                // Logic Checks
+                if (part1Expired && !part1Submitted) {
+                    submitPart1(true);
+                }
+                if (examExpired && !examSubmitted) {
+                    finishExam(true);
+                }
+
+                // DOM Updates
+                const totalTimerEl = document.getElementById("total-timer");
+                const part1TimerEl = document.getElementById("part1-timer");
+
+                if (totalTimerEl) {
+                    const remaining = Math.max(0, TOTAL_LIMIT_MS - timeElapsed);
+                    totalTimerEl.innerText = `Total Time: ${formatTime(remaining)}`;
+                    if (remaining < 300000)
+                        totalTimerEl.classList.add("text-red-600");
+                }
+
+                if (part1TimerEl && !part1Submitted) {
+                    const remaining = Math.max(
+                        0,
+                        PART_1_LIMIT_MS - timeElapsed,
+                    );
+                    part1TimerEl.innerText = `Part I closes in: ${formatTime(remaining)}`;
+                    if (remaining < 300000)
+                        part1TimerEl.classList.add("text-orange-600");
+                }
+            }
+
+            // --- Review / Results Screen ---
+            function renderReview() {
+                let totalScore = 0;
+                let maxScore = 0;
+
+                questions.forEach((q) => {
+                    maxScore += q.points;
+                    if (q.type !== "essay") {
+                        if (answers[q.id] === q.correct) {
+                            totalScore += q.points;
+                        }
+                    }
+                });
+
+                app.innerHTML = `
+                    <div class="max-w-4xl mx-auto px-6 py-12">
+                        <div class="text-center mb-12">
+                            <h1 class="text-4xl font-bold text-gray-900 mb-4">Exam Completed</h1>
+                            <div class="inline-block bg-white p-6 rounded-xl shadow-sm border border-gray-200">
+                                <div class="text-5xl font-bold text-blue-600 mb-2">${totalScore} <span class="text-2xl text-gray-400">/ ${maxScore}*</span></div>
+                                <p class="text-gray-500">*Score excludes essay questions (Self-Review required)</p>
+                            </div>
+                            <div class="mt-6 flex justify-center gap-4">
+                                <a href="#" onClick="window.location.reload();return false;" class="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">Retry Test</a>
+                                <a href="#" onClick="window.history.back();return false;" class="px-6 py-2 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300">← Back</a>
+                            </div>
+                        </div>
+
+                        <div class="space-y-8">
+                            <h2 class="text-2xl font-bold text-gray-800 border-b pb-2">Detailed Review</h2>
+                            ${questions
+                                .map((q, i) => {
+                                    const userAns = answers[q.id];
+                                    const isCorrect = userAns === q.correct;
+                                    const isEssay = q.type === "essay";
+
+                                    let statusColor = isEssay
+                                        ? "border-blue-200 bg-blue-50"
+                                        : isCorrect
+                                          ? "border-green-200 bg-green-50"
+                                          : "border-red-200 bg-red-50";
+                                    let icon = isEssay
+                                        ? "📝"
+                                        : isCorrect
+                                          ? "✅"
+                                          : "❌";
+
+                                    return `
+                                    <div class="border rounded-xl overflow-hidden ${statusColor}">
+                                        <div class="p-6">
+                                            <div class="flex justify-between items-start mb-4">
+                                                <div class="flex gap-3">
+                                                    <span class="text-2xl">${icon}</span>
+                                                    <div>
+                                                        <span class="text-xs font-bold uppercase tracking-wider opacity-60">${q.sectionTitle}</span>
+                                                        <h3 class="text-lg font-bold text-gray-900">${i + 1}. ${q.question}</h3>
+                                                    </div>
+                                                </div>
+                                                <span class="font-mono text-sm font-bold opacity-60">${q.points} pts</span>
+                                            </div>
+
+                                            ${
+                                                isEssay
+                                                    ? `
+                                                <div class="bg-white p-4 rounded border border-gray-200 mb-4">
+                                                    <div class="text-xs font-bold text-gray-500 mb-1">YOUR ANSWER:</div>
+                                                    <p class="whitespace-pre-wrap font-mono text-sm text-gray-800">${userAns || "No answer provided."}</p>
+                                                </div>
+                                                <div class="bg-blue-100 p-4 rounded border border-blue-200">
+                                                    <div class="text-xs font-bold text-blue-800 mb-1">RUBRIC / SELF CHECK:</div>
+                                                    <p class="text-sm text-blue-900 whitespace-pre-line">${q.rubric}</p>
+                                                </div>
+                                            `
+                                                    : `
+                                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                                                    <div class="bg-white p-3 rounded border ${isCorrect ? "border-green-300" : "border-red-300"}">
+                                                        <div class="text-xs font-bold text-gray-500">YOUR ANSWER:</div>
+                                                        <div class="font-medium">${formatAnswer(q, userAns)}</div>
+                                                    </div>
+                                                    <div class="bg-white p-3 rounded border border-green-300">
+                                                        <div class="text-xs font-bold text-gray-500">CORRECT ANSWER:</div>
+                                                        <div class="font-medium text-green-700">${formatAnswer(q, q.correct)}</div>
+                                                    </div>
+                                                </div>
+                                                <div class="text-sm text-gray-700 bg-white bg-opacity-50 p-3 rounded">
+                                                    <strong>Explanation:</strong> ${q.feedback}
+                                                </div>
+                                            `
+                                            }
+                                        </div>
+                                    </div>
+                                `;
+                                })
+                                .join("")}
+                        </div>
+                    </div>
+                `;
+            }
+
+            // --- Logic Helpers ---
+
+            function formatAnswer(q, val) {
+                if (val === undefined || val === null) return "No Answer";
+                if (q.type === "true-false") return val ? "True" : "False";
+                if (q.type === "multiple-choice") return q.options[val];
+                return val;
+            }
+
+            function formatTime(ms) {
+                const totalSeconds = Math.floor(ms / 1000);
+                const m = Math.floor(totalSeconds / 60);
+                const s = totalSeconds % 60;
+                return `${m}:${s.toString().padStart(2, "0")}`;
+            }
+
+            // --- Event Handlers (Exposed to Window) ---
+
+            window.startExam = () => {
+                examStarted = true;
+                startTime = Date.now();
+                renderApp();
+            };
+
+            // For Objective questions: Update state and re-render (to show selection UI)
+            window.saveObjectiveAnswer = (qId, val) => {
+                answers[qId] = val;
+                renderApp();
+            };
+
+            // For Essay questions: Update state SILENTLY (no re-render) to keep focus
+            window.handleEssayInput = (qId, element) => {
+                const val = element.value;
+                answers[qId] = val;
+
+                // Update word count DOM manually
+                const count = val
+                    .split(/\s+/)
+                    .filter((w) => w.length > 0).length;
+                const countEl = document.getElementById(`word-count-${qId}`);
+                if (countEl) countEl.innerText = `Words: ${count}`;
+            };
+
+            window.nav = (dir) => {
+                const newIndex = currentIndex + dir;
+                if (newIndex >= 0 && newIndex < questions.length) {
+                    currentIndex = newIndex;
+                    renderApp();
+                }
+            };
+
+            window.submitPart1 = (auto = false) => {
+                if (
+                    !auto &&
+                    !confirm(
+                        "Are you sure you want to submit Part I? You will not be able to change answers for this section.",
+                    )
+                )
+                    return;
+                part1Submitted = true;
+
+                if (isPart1(questions[currentIndex])) {
+                    const firstPart2Index = questions.findIndex((q) =>
+                        isPart2(q),
+                    );
+                    if (firstPart2Index !== -1) currentIndex = firstPart2Index;
+                }
+                renderApp();
+            };
+
+            window.finishExam = (auto = false) => {
+                if (
+                    !auto &&
+                    !confirm(
+                        "Are you sure you want to submit the exam? This cannot be undone.",
+                    )
+                )
+                    return;
+                part1Submitted = true;
+                examSubmitted = true;
+                renderApp();
+            };
+
+            window.toggleDebug = () => {
+                debugMode = !debugMode;
+                renderApp();
+            };
+
+            window.debugAnswer = (isCorrect) => {
+                const q = questions[currentIndex];
+                if (q.type === "essay") {
+                    answers[q.id] = isCorrect
+                        ? "Debug: Perfect essay answer generated."
+                        : "Debug: Poor essay answer.";
+                } else {
+                    if (isCorrect) {
+                        answers[q.id] = q.correct;
+                    } else {
+                        if (q.type === "true-false") answers[q.id] = !q.correct;
+                        if (q.type === "multiple-choice")
+                            answers[q.id] = (q.correct + 1) % q.options.length;
+                    }
+                }
+                if (currentIndex < questions.length - 1) {
+                    currentIndex++;
+                }
+                renderApp();
+            };
+
+            // Start Timer Loop (Only updates Timer UI, does not re-render app)
+            setInterval(updateTimerUI, 1000);
+
+            // Initial Render
+            renderApp();
+        </script>
+    </body>
+</html>

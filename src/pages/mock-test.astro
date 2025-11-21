@@ -1,0 +1,26 @@
+---
+// src/pages/mockup-test.astro
+import MockTestComponent from '../components/mockTest.astro';
+import mockTestData from '../data/mock-test.json';
+
+// Flatten the hierarchical JSON structure into a linear array for the quiz engine
+// We inject the 'sectionTitle' so the UI knows which part the question belongs to
+const allQuestions = mockTestData.sections.flatMap(section => 
+    section.questions.map(question => ({
+        ...question,
+        sectionTitle: section.section,
+        // Ensure rubric is available at top level for essay questions if nested differently
+        rubric: question.rubric || null 
+    }))
+);
+
+const topic = mockTestData.topic;
+// Placeholder URL for the "Next" button after exam completion
+const nextSectionUrl = "https://lexue.bit.edu.cn/course/view.php?id=16945#hwc-mount";
+---
+
+<MockTestComponent 
+    topic={topic} 
+    questions={allQuestions} 
+    nextSectionUrl={nextSectionUrl} 
+/>
